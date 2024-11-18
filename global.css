@@ -1,0 +1,13 @@
+@import url(CSS/navbar.css);
+
+*{
+    margin: 0;
+    padding: 0;
+    margin: 0;
+}
+/*armazena as cores do css em  var */
+:root{
+--primary-color: rgba(29, 29, 185, 0.5);
+--secondary-color:rgba(11, 12, 12, 0.5);
+--color-letters: #726b5efb;
+}
