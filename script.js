@@ -18,11 +18,20 @@ class User {
     }
 
     deleteUser() {
-     dataBase.pop();
+        try {
+            const userDelete = dataBase.findIndex(user => user.email === email);
+            if(!userDelete) {
+                throw new Error("Usuário não encontrado!");
+            }
+            dataBase.pop();
+        } catch (error) {
+            console.error();
+        }
+     
     }
 
     userLogin() {
-
+        
     }
 }
 
