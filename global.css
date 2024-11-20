@@ -7,7 +7,9 @@
 }
 /*armazena as cores do css em  var */
 :root{
---primary-color: rgba(29, 29, 185, 0.5);
+--primary-color: rgba(26, 26, 82, 0.575);
 --secondary-color:rgba(11, 12, 12, 0.5);
---color-letters: #726b5efb;
+--color-letters: #8ee728d3;
 }
+
+
