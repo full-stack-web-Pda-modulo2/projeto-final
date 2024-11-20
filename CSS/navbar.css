@@ -2,9 +2,10 @@
 /*importando as var do arquivo global*/
 
 header{
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     padding: 10px 20px;
     color: var(--color-letters);
+    box-shadow: 60px -16px teal;
 }
 
 
@@ -57,6 +58,13 @@ nav{
     margin: 5px;
     transition: all 0.3s ease;
 }
+.overlay{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
 /*Definindo a aparência das linhas do hambúrguer*/
 .mobile-menu .line1,.mobile-menu .line2,.mobile-menu .line3{
     width: 25px;
@@ -67,6 +75,11 @@ nav{
 }
 @media (max-width:768px){
 
+    .overlay {
+        flex-direction: column; /* Alinha os elementos verticalmente */
+        gap: 10px;
+    }
+
     .nav-list{
         position: absolute;
         top: 60px;
@@ -76,7 +89,7 @@ nav{
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: var(--secondary-color);
+        background-color: var(--primary-color);
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
         display: none;
@@ -105,4 +118,72 @@ nav{
         font-size: 20px;
     }
 }
+}
+
+.bnt-nav {
+    color: white;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #FFA12B;
+    padding: 10px 20px;
+    
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-shadow: 0px 1px 0px #000;
+    filter: dropshadow(color=#000, offx=0px, offy=1px);
+    
+    -webkit-box-shadow: inset 0 1px 0 #FFE5C4, 0 5px 0 #915100;
+    -moz-box-shadow: inset 0 1px 0 #FFE5C4, 0 5px 0 #915100;
+    box-shadow: inset 0 1px 0 #FFE5C4, 0 5px 0 #915100;
+    
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Suaviza mudanças de tamanho */
+}
+
+.bnt-nav:active {
+    top: 5px;
+    background-color: #F78900;
+    
+    -webkit-box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+    -moz-box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3pxpx 0 #915100;
+    box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+}
+
+/* Estilo para o contêiner dos botões */
+.nav-button {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que os botões se ajustem automaticamente */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .bnt-nav {
+        font-size: 18px; /* Reduz o tamanho do texto */
+        padding: 8px 16px; /* Ajusta o espaçamento interno */
+    }
+    
+    .nav-button {
+        gap: 8px; /* Reduz o espaçamento entre os botões */
+    }
+}
+
+@media (max-width: 480px) {
+    .bnt-nav {
+        font-size: 16px; /* Ainda menor para telas muito pequenas */
+        padding: 6px 12px; /* Ajusta o espaçamento interno */
+    }
+
+    .nav-button {
+        flex-direction: column; /* Empilha os botões verticalmente */
+        gap: 6px; /* Reduz o espaçamento para combinações mais compactas */
+    }
 }
