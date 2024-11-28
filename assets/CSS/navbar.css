@@ -2,10 +2,19 @@
 /*importando as var do arquivo global*/
 
 header{
-    background-color: var(--primary-color);
+
+    /* background-color: var(--primary-color); */
+  
     padding: 10px 20px;
-    color: var(--color-letters);
-    box-shadow: 60px -16px teal;
+    color: var(--ninth-color);
+    /* box-shadow: 0 8px 15px rgba(0,0,0,0.2);/*sombra suave para header*/
+    /* border-bottom: 4px solid rgba(106,131,131,0.8); */ 
+    /* position: sticky;
+    top: 0;
+    z-index: 1000; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -13,6 +22,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 0;
 }
 
 
@@ -20,6 +30,7 @@ nav{
     height:100px; 
     width: auto; 
     display: block; 
+    filter: drop-shadow(0px 5px 8px rgba(0,0,0,0.3));/*Sombra para a logo*/
   }
 
 
@@ -37,14 +48,16 @@ nav{
   }
   /*Estilo para os links dentro da lista de navegação*/
 .nav-list li a{
-    color:var(--color-letters);
+    color: var(--color-secondary);
     text-decoration: none;
     font-size: 16px;
+    font-family:Nunito_Sans;
     font-weight: 500;
-    transition:color 0.3s ease; 
+    transition:color 0.3s ease,text-shadow 0.3s ease; 
 }
 .nav-list li a:hover{
-    color: var(--primary-color);
+    color: var(--neutral-color);
+   text-shadow: 0 3px 6px rgba(0,0,0,0.4);
 }
 .mobile-menu{
     display: none;
@@ -56,6 +69,8 @@ nav{
     width: 25px;
     height: 3px;
     margin: 5px;
+    background-color: var(  --background-color);
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
 }
 .overlay{
@@ -69,8 +84,9 @@ nav{
 .mobile-menu .line1,.mobile-menu .line2,.mobile-menu .line3{
     width: 25px;
     height: 3px;
-    background-color:var(--color-letters);
+    background-color:var(--fifth-color);
     margin: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
 }
 @media (max-width:768px){
@@ -89,10 +105,11 @@ nav{
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: var(--primary-color);
+        background-color: var(--secondary-color);
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
         display: none;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
     }
     .nav-list.active{
         display: flex;
@@ -121,69 +138,129 @@ nav{
 }
 
 .bnt-nav {
-    color: white;
-    font-family: Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 20px;
+    color: var(--color-letters); /* Cor inicial do texto */
+    font-family: 'NunitoSans-VariableFont', Arial, sans-serif; /* Fonte moderna */
+    font-weight: 600; /* Peso intermediário */
+    font-size: 16px; /* Tamanho de fonte ajustado */
     text-align: center;
     text-decoration: none;
-    background-color: #FFA12B;
-    padding: 10px 20px;
-    
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    text-shadow: 0px 1px 0px #000;
-    filter: dropshadow(color=#000, offx=0px, offy=1px);
-    
-    -webkit-box-shadow: inset 0 1px 0 #FFE5C4, 0 5px 0 #915100;
-    -moz-box-shadow: inset 0 1px 0 #FFE5C4, 0 5px 0 #915100;
-    box-shadow: inset 0 1px 0 #FFE5C4, 0 5px 0 #915100;
-    
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    background: linear-gradient(135deg, var(--sixth-color), var(--seventh-color)); /* Fundo gradiente */
+    padding: 14px 36px; /* Tamanho confortável */
+    border: 2px solid var(--sixth-color); /* Borda inicial com destaque */
+    outline: none;
+
+    /* Estilo criativo */
+    border-radius: 50px; /* Formato de pílula */
     display: inline-block;
     cursor: pointer;
-    transition: all 0.3s ease; /* Suaviza mudanças de tamanho */
+    position: relative; /* Para animação */
+    overflow: hidden; /* Controlar efeitos visuais */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombras impactantes */
+    transition: 
+        transform 0.3s ease, 
+        box-shadow 0.3s ease, 
+        background 0.3s ease, 
+        border-color 0.3s ease; /* Suavidade nas transições */
+}
+
+.bnt-nav::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.2),
+        transparent
+    ); /* Efeito gradiente circular */
+    border-radius: 50%;
+    animation: spin 3s linear infinite, pulse 1.5s ease-in-out infinite; /* Animação contínua e pulso */
+    z-index: 0; /* Fica atrás do texto */
+}
+
+.bnt-nav:hover::before {
+    animation: spin 1s linear infinite, pulse 1s ease-in-out infinite; /* Mais rápido no hover */
+}
+
+.bnt-nav:hover {
+    color: var(--color-letters-secondary); /* Contraste no texto */
+    background: linear-gradient(135deg, var(--seventh-color), var(--fifth-color)); /* Fundo mais vibrante no hover */
+    box-shadow: 
+        0 15px 25px rgba(0, 0, 0, 0.5), /* Sombra externa mais intensa */
+        0 10px 20px rgba(0, 0, 0, 0.3); /* Segunda camada de sombra */
+    transform: translateY(-6px); /* Elevação mais pronunciada */
+    border-color: var(--fifth-color); /* Cor de borda muda no hover */
+}
+
+.bnt-nav span {
+    position: relative; /* Texto acima dos efeitos */
+    z-index: 1;
 }
 
 .bnt-nav:active {
-    top: 5px;
-    background-color: #F78900;
-    
-    -webkit-box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
-    -moz-box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3pxpx 0 #915100;
-    box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+    transform: translateY(3px); /* Feedback visual de clique */
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.5), /* Sombra reduzida */
+        inset 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra interna ao clicar */
+    background: linear-gradient(135deg, var(--fifth-color), var(--fourth-color)); /* Fundo muda ao clicar */
 }
 
-/* Estilo para o contêiner dos botões */
-.nav-button {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; /* Permite que os botões se ajustem automaticamente */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+
+
+
+
+/* Responsividade */
 /* Responsividade */
 @media (max-width: 768px) {
     .bnt-nav {
-        font-size: 18px; /* Reduz o tamanho do texto */
-        padding: 8px 16px; /* Ajusta o espaçamento interno */
+        font-size: 14px; /* Reduz o tamanho da fonte em telas menores */
+        padding: 12px 28px; /* Ajusta o padding para tamanhos menores */
+        border-radius: 40px; /* Bordas ainda arredondadas, mas um pouco mais sutis */
     }
-    
-    .nav-button {
-        gap: 8px; /* Reduz o espaçamento entre os botões */
+
+    .bnt-nav::before {
+        width: 150%; /* Ajusta o tamanho do efeito circular para telas menores */
+        height: 150%;
+    }
+
+    .bnt-nav:hover {
+        transform: translateY(-4px); /* Menos elevação para telas menores */
     }
 }
 
 @media (max-width: 480px) {
     .bnt-nav {
-        font-size: 16px; /* Ainda menor para telas muito pequenas */
-        padding: 6px 12px; /* Ajusta o espaçamento interno */
+        font-size: 12px; /* Fontes ainda menores em telas muito pequenas */
+        padding: 10px 24px; /* Ajuste do padding para telas pequenas */
+        border-radius: 30px; /* Bordas mais sutis */
     }
 
-    .nav-button {
-        flex-direction: column; /* Empilha os botões verticalmente */
-        gap: 6px; /* Reduz o espaçamento para combinações mais compactas */
+    .bnt-nav::before {
+        width: 130%; /* Ajuste do tamanho do efeito para telas pequenas */
+        height: 130%;
+    }
+
+    .bnt-nav:hover {
+        transform: translateY(-3px); /* Menos elevação em telas muito pequenas */
     }
 }
