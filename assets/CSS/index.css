@@ -17,12 +17,14 @@ body {
 
 
 .conteiner {
+  
     font-family: 'Nunito_Sans', Arial, sans-serif; /* Fonte personalizada */
     text-align: center; /* Centraliza o texto */
     padding: 2.5%; /* Espaçamento interno da seção */
 }
 
 .conteiner, .cards, h1 {
+    text-align: center;
     font-size: 24px; /* Tamanho padrão da fonte */
     font-weight: bold; /* Fonte em negrito */
     margin-bottom: 5vh; /* Margem inferior proporcional à altura da tela */
@@ -37,6 +39,7 @@ body {
 }
 
 .card {
+ 
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); /* Fundo com gradiente horizontal */
     box-sizing: 5px 5px 5px rgba(0,0,0,0.1); /* Bordas e sombras */
     border-radius: 20px; /* Bordas arredondadas */
@@ -151,4 +154,51 @@ button:hover {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+@media screen and (max-width: 768px ) {
+    body{
+        width: 100%;
+    background: linear-gradient(217deg, var(--neutral-color) 0%, rgb(255, 239, 239) 20%, rgba(255,255,255,1) 81%, var(--neutral-color) 96%);
+
+    }
+    
+    
+    #home{
+        min-height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+     .cards{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .card{
+        width: 100%;
+    }
+    h1{
+        font-size: clamp(1.5rem, 2vw, 2.5rem);
+    }
+    .card p{
+        font-size: clamp(1rem, 1.2vw, 1.5rem) 
+    }
+    .button{
+        padding: 10px 20px;
+        font-size: clamp(0.9rem, 1.2vw, 1.1rem)
+    }
+    .footer{
+        width: 100%;
+        height: auto;
+    }
+    #logo{
+        width:70% ;
+        height: auto;
+        display: block;
+    }
+    .custor-buttom{
+         display: flex;
+         justify-content: space-between;
+    }
 }
