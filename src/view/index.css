@@ -39,9 +39,9 @@ body {
 }
 
 .card {
- 
+
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); /* Fundo com gradiente horizontal */
-    box-sizing: 5px 5px 5px rgba(0,0,0,0.1); /* Bordas e sombras */
+    box-sizing: 5px 5px 5px rgba(0,0,0,0.5); /* Bordas e sombras */
     border-radius: 20px; /* Bordas arredondadas */
     padding: 20px; /* Espaçamento interno */
     width: 250px; /* Largura fixa */
@@ -160,7 +160,7 @@ button:hover {
     body{
         width: 100%;
     background: linear-gradient(217deg, var(--neutral-color) 0%, rgb(255, 239, 239) 20%, rgba(255,255,255,1) 81%, var(--neutral-color) 96%);
-
+background-repeat: round;
     }
     
     
@@ -201,4 +201,8 @@ button:hover {
          display: flex;
          justify-content: space-between;
     }
+    .card-content p {
+        font-size: 1.8rem;
+    }
 }
+
