@@ -1,57 +1,30 @@
-
+@import url(./assets/CSS/navbar.css);
+@import url(./assets/CSS/events.css);
 
 *{
     margin: 0;
     padding: 0;
     margin: 0;
 }
-/*armazena as cores do css em  var */
-:root {
-    /* Cores principais (branding) */
-    --primary-color: #3283B1; /* Principal para botões, links ou cabeçalhos */
-    --secondary-color: #34B0AC; /* Destaques ou componentes de apoio */
-  
-    /* Tons complementares */
-    --accent-color: #F28C99; /* Destaques chamativos (CTA, botões importantes) */
-    --neutral-color: #4DC2A5; /* Fundo de elementos ou seções neutras */
-  
-    /* Fundos e superfícies */
-    --background-color: #FFFFFF; /* Fundo principal */
-    --background-secondary: #F7F7F7; /* Fundos alternativos */
-    
-  
-    /* Texto */
-    --text-primary: #333333; /* Texto principal */
-    --text-secondary: #757575; /* Subtítulos ou descrições */
-    --text-on-dark: #FFFFFF; /* Texto sobre fundos escuros */
-  }
-  
-/*fontes internas */
-@font-face {
-    font-family:Kanit-Black ;
-    src: url(assets/font/Kanit/Kanit-Black.ttf);
-}
 
-@font-face {
-    font-family:NunitoSans-Italic ;
-    src: url(assets/font/Nunito_Sans/NunitoSans-Italic-VariableFont_YTLC\,opsz\,wdth\,wght.ttf);
-}
+:root{
+    /* Cores principais */
+--primary-color: #3283b1; /*cores para botões*/
+--secondary-color:#34b0ac; /* Destaques e ou componentes de apoio*/
 
-@font-face {
-    font-family:Kanit-ThinItalic ;
-    src: url(assets/font/Kanit/Kanit-ThinItalic.ttf);
-}
- 
-@font-face {
-    font-family: Kanit-Regula ;
-    src: url(assets/font/Kanit/Kanit-Regular.ttf);
-}
-@font-face {
-    font-family:Nunito_Sans ;
-    src: url(assets/font/Nunito_Sans/OFL.txt);
-}
-@font-face {
-    font-family:NunitoSans-VariableFont;
-    src: url(assets/font/Nunito_Sans/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf);
+/* Tons Complementares */
+--accent-color: #f28c99;
+--neutral-color: #4dc2a5;
+
+/* Fundos e superficies */
+
+--background-color: #ffffff;
+--background-secondary: #f7f7f7;
+
+/* Texto */
+
+--text-primary: #333333;
+--text-secondary: #757575;
+--text-on-dark: #ffffff;
 }
 
