@@ -1,9 +1,9 @@
 'use strict'
 const preencherFormulario = (endereco)=>{
     document.getElementById('street-input').value = endereco.logradouro;
-    document.getElementById('neighborhood').value = endereco.bairro;
-    document.getElementById('city').value = endereco.localidade;
-    document.getElementById('state').value = endereco.uf;
+    document.getElementById('neighborhood-input').value = endereco.bairro;
+    document.getElementById('city-input').value = endereco.localidade;
+    document.getElementById('state-input').value = endereco.uf;
 }
 //função para validar se o valor contém apenas números
 const eNumero = (numero)=>/^[0-9]+$/.test(numero);
@@ -11,14 +11,14 @@ const eNumero = (numero)=>/^[0-9]+$/.test(numero);
 const cepValido = (cep)=> cep.length === 8 && eNumero(cep);
 const pequisarCep = async() =>{
 try {
-    let cep= document.getElementById("cep").value;
+    let cep= document.getElementById("cep-input").value;
     cep = cep.replace(/\D/g, '');
     const url = `http://viacep.com.br/ws/${cep}/json/`;
     if(cepValido(cep)){
         const dados = await fetch(url);
         const endereco = await dados.json();
         if(endereco.hasOwnProperty('erro')){
-            document.getElementById('state').value = 'CEP não encontrado!';
+            document.getElementById('state-input').value = 'CEP não encontrado!';
             throw new Error('CEP não encontrado!')
         }else{
             preencherFormulario(endereco);
@@ -33,4 +33,4 @@ try {
     console.log(error.message)
 }    
 };
-document.getElementById("cep").addEventListener('focusout', pequisarCep)
+document.getElementById("cep-input").addEventListener('focusout', pequisarCep)

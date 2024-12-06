@@ -10,22 +10,22 @@
     
     <form>
         <div>
-            <label >Nome: </label>
-            <input type="text" placeholder="name" id="name">
-            <label>Descrição: </label>
-            <textarea cols="100" rows="5" placeholder="coloque a descrição do evento aqui"></textarea>
+            <label for="name-input">Nome: </label>
+            <input type="text" placeholder="name" id="name-input">
+            <label for="description-text">Descrição: </label>
+            <textarea cols="100" rows="5" placeholder="coloque a descrição do evento aqui" id="description-text"></textarea>
         </div>
         <div>
-            <label for="cep">cep</label>
-            <input type="number" placeholder="cep" id="cep">
-            <label for="street">Rua</label>
+            <label for="cep-input">cep</label>
+            <input type="number" placeholder="cep" id="cep-input">
+            <label for="street-input">Rua</label>
             <input type="text" id="street-input" placeholder="Rua">
-            <label for="neighborhood">Bairro</label>
-            <input type="text" id="neighborhood" placeholder="Bairro">
-            <label for="city">Cidade</label>
-            <input type="text" id="city" placeholder="Cidade">
-            <label for="state">Estado</label>
-            <input type="text" id="state" placeholder="Estado">
+            <label for="neighborhood-input">Bairro</label>
+            <input type="text" id="neighborhood-input" placeholder="Bairro">
+            <label for="city-input">Cidade</label>
+            <input type="text" id="city-input" placeholder="Cidade">
+            <label for="state-input">Estado</label>
+            <input type="text" id="state-input" placeholder="Estado">
         </div>
         <div>
             <label for="date">data</label>
@@ -33,7 +33,7 @@
         </div>
         <button id="register-btn">Cadastra</button>
     </form>
-   <script type="module" src="viaCep.js"></script>
-    <script src="./script.js"></script>
+   <!-- <script type="module" src="viaCep.js"></script> -->
+    <script type="module" src="../controllers/conferenceController.js"></script>
 </body>
 </html>
