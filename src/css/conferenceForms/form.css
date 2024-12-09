@@ -1,0 +1,60 @@
+ @import url(./../../../global.css);
+
+
+/* .conteiner-father{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+}
+
+.conteiner-children{
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}  */
+
+.pop-out{
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    padding: 1.5rem;
+    background-color: var( --primary-color);
+    color: var(--text-secondary);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0,0,0,0.2);
+    font-size: 1.6rem;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+    font-size: 2.4rem;
+}
+
+.progress-bar{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0.5rem;
+    background-color: var( --text-primary);
+    width: 100%;
+    transform-origin: left;
+    animation: progress 3s linear forwards;
+}
+
+@keyframes progress {
+    from{
+        width: 100%;
+    }
+    to{
+        width: 0;
+    }
+}
+
+
+.pop-out.show{
+    opacity: 1;
+    transform: translateX(0);
+}
