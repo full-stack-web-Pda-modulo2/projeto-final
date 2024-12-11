@@ -43,6 +43,7 @@ class Adress {
         };
     }
 }
+
 class Conference {
     constructor(title, img, content, adress, initialDate, finalDate) {
       this.title = title;
