@@ -43,61 +43,84 @@ class Adress {
         };
     }
 }
-//  Classe de conference(Eventos)
-class Conference extends Adress {
-    #id
-    #name
-    #content
-    #datePublic
-    #img
-
-    constructor(id, name, content, location, datePublic, img) {
-        // Chama o construtor da classe pai (Adress) com os dados de Adress
-        super(...location);  // location seria um array com [cep, street, neighborhood, city, state, complement]
-        this.#id = id;
-        this.#name = name;
-        this.#content = content;
-        this.#datePublic = datePublic;
-        this.#img = img;
+class Conference {
+    constructor(title, img, content, adress, initialDate, finalDate) {
+      this.title = title;
+      this.img = img;
+      this.content = content;
+      this.adress = adress;
+      this.initialDate = new Date(initialDate);
+      this.finalDate = new Date(finalDate);
     }
 
-    get id() {
-        return this.#id;
+    isInitialDateValid() {
+      return this.initialDate.getTime() > Date.now();
     }
 
-    set id(id) {
-        this.#id = id;
+    getEventDuration() {
+        const durationMs = this.finalDate.getTime() - this.initialDate.getTime();
+
+        return this.formatDuration(durationMs);
+    
     }
 
-    get name() {
-        return this.#name;
+    timeUntilEvent() {
+        const now = new Date().getTime();
+        const timeUntilMs = this.initialDate.getTime() - now;
+
+        // Caso o evento já tenha começado
+        if (timeUntilMs <= 0) {
+            return "O evento já começou ou terminou!";
+        }
+
+        return this.formatDuration(timeUntilMs);
     }
 
-    set name(name) {
-        this.#name = name;
-    }
+    formatDuration(durationMs) {
+        const hours = Math.floor((durationMs / (1000 * 60 * 60)) % 24);
+        const days = Math.floor(durationMs / (1000 * 60 * 60 * 24));
 
-    get content() {
-        return this.#content;
-    }
+        return `${days} dias e ${hours} horas`;
+      }
+      
 
-    set content(content) {
-        this.#content = content;
-    }
+    displayEvent() {
+      const eventSection = document.createElement("section");
+      eventSection.classList.add("event-info");
 
-    get datePublic() {
-        return this.#datePublic;
-    }
+      eventSection.innerHTML = `
+        <h2>${this.title}</h2>
+        <img src="${this.img}" alt="Imagem do evento" id="img-evento" style="max-width: 100%;">
+        <p><strong>Descrição:</strong> ${this.content}</p>
+        <p><strong>Endereço:</strong> ${this.adress}</p>
+        <p><strong>Data inicial:</strong> ${this.initialDate.toLocaleString()}</p>
+        <p><strong>Data final:</strong> ${this.finalDate.toLocaleString()}</p>
+        <p><strong>Duração do evento:</strong> ${this.getEventDuration()}</p>
+        <p>O evento começa em ${this.timeUntilEvent()}</p>
+      `;
 
-    set datePublic(datePublic) {
-        this.#datePublic = datePublic;
+      document.body.appendChild(eventSection);
     }
+  }
 
-    // Acessando PegaDados da classe pai diretamente
-    get dataConference() {
-        return [this.#content, this.PegaDados, this.#name];  // Usando PegaDados da superclasse
-    }
-}
+  document.getElementById("register-btn").addEventListener("click", () => {
+    const title = document.getElementById("name-input").value;
+    const img = document.getElementById("url-img").value;
+    const content = document.getElementById("description-text").value;
+    const initialDate = document.getElementById("initial-date-input").value;
+    const finalDate = document.getElementById("final-date-input").value;
+    const adress = `
+      ${document.getElementById("street-input").value},
+      ${document.getElementById("neighborhood-input").value},
+      ${document.getElementById("city-input").value} - 
+      ${document.getElementById("state-input").value},
+      CEP: ${document.getElementById("cep-input").value}
+    `;
+
+    const conference = new Conference(title, img, content, adress, initialDate, finalDate);
+
+    conference.displayEvent();
+  });
 
 
 
