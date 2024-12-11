@@ -45,18 +45,28 @@ class Adress {
 }
 //  Classe de conference(Eventos)
 class Conference extends Adress {
+    #id
     #name
     #content
     #datePublic
     #img
 
-    constructor(name, content, location, datePublic, img) {
+    constructor(id, name, content, location, datePublic, img) {
         // Chama o construtor da classe pai (Adress) com os dados de Adress
         super(...location);  // location seria um array com [cep, street, neighborhood, city, state, complement]
+        this.#id = id;
         this.#name = name;
         this.#content = content;
         this.#datePublic = datePublic;
         this.#img = img;
+    }
+
+    get id() {
+        return this.#id;
+    }
+
+    set id(id) {
+        this.#id = id;
     }
 
     get name() {
@@ -101,7 +111,7 @@ function checkFilled() {
         !neighborhood.value.trim() ||
         !city.value.trim() ||
         !state.value.trim() ||
-        !date.value.trim() ||
+        !datePublic.value.trim() ||
         !complement.value.trim()
     ) {
         throw Error("Preencha todas as informações");
@@ -119,22 +129,15 @@ function verificaCep(cep){
     }
 }
 
-// função que cria um evento usando a classe conference 
-function createConference() {
-    try {
-        
-    } catch (e) {
-        
-    }
-}
-
 //  botão que vai criar um evento ao clicar nele e adicionar no banco de dados
 
 registerBtn.addEventListener("click", (event)=>{
     event.preventDefault();
     try {
         checkFilled();
-        const newConference = new Conference(nameConference.value, description.value, [cep.value, street.value, neighborhood.value, city.value, state.value, complement.value], datePublic.value, "imagem");
+        //falta colocar o id 
+        const newConference = new Conference(id ,nameConference.value, description.value, [cep.value, street.value, neighborhood.value, city.value, state.value, complement.value], datePublic.value, "imagem");
+        
     console.log(newConference);
     } catch (e) {
         mostrarErro(e.message);
