@@ -8,7 +8,6 @@
 </head>
 <body>
     <main>
-        <!-- Tirei algumas divs que não pareciam fazer muito sentido, mas o código original tá ali embaixo -->
         <div class="conteiner-father">
             <form id="event-form">
               <div>
@@ -63,115 +62,6 @@
             <div class="progress-bar"></div>
           </section>
           <section id="overlay"></section>
-    <body>
-        <!--Este é o formulário de cadastro de eventos-->
-       <!-- <script type="module" src="viaCep.js"></script> -->
-        <main>
-            <!-- Tirei algumas divs que não pareciam fazer muito sentido, mas o código original tá ali embaixo -->
-            <div class="conteiner-father">
-                <form id="event-form">
-                  <div>
-                    <div>
-                      <label for="name-input">Nome:</label>
-                      <input type="text" placeholder="Digite o nome do evento" id="name-input" required>
-              
-                       <!-- coloquei pro usuário adicionar imagens através da url, é mais fácil (ainda não entendi bem como trata imagens de uploads)-->
-                      <label for="url-img">Imagem:</label>
-                      <input type="url" id="url-img" placeholder="Cole aqui a URL da sua imagem">
-              
-                      <label for="description-text">Descrição:</label>
-                      <!-- diminuí um pouco o tamanho -->
-                      <textarea
-                        cols="60"
-                        rows="4"
-                        placeholder="Digite a descrição do evento aqui"
-                        id="description-text"
-                        required
-                      ></textarea>
-                    </div>
-                    <!-- adicionei inputs de data inicial e data final  -->
-                    <label for="initial-date-input">Data inicial:</label>
-                    <input type="datetime-local" id="initial-date-input" required>
-              
-                    <label for="final-date-input">Data final:</label>
-                    <input type="datetime-local" id="final-date-input" required>
-                  </div>
-              
-                  <div>
-                    <label for="cep-input">CEP:</label>
-                    <input type="text" placeholder="CEP" id="cep-input" required>
-              
-                    <label for="street-input">Rua:</label>
-                    <input type="text" id="street-input" placeholder="Rua" required>
-              
-                    <label for="neighborhood-input">Bairro:</label>
-                    <input type="text" id="neighborhood-input" placeholder="Bairro" required>
-              
-                    <label for="city-input">Cidade:</label>
-                    <input type="text" id="city-input" placeholder="Cidade" required>
-              
-                    <label for="state-input">Estado:</label>
-                    <input type="text" id="state-input" placeholder="Estado" required>
-                  </div>
-              
-                  <button type="button" id="register-btn">Cadastrar</button>
-                </form>
-              </div>
-              <section id="errorPopOut">
-                <span id="errorMessage" class="hidden"></span>
-                <div class="progress-bar"></div>
-              </section>
-              
-              <section id="overlay"></section>
-              </style>
-              
-        </main>
-        <script type="module" src="../js/conferenceForms/conferenceForms.js"></script>
-        <script type="module" src="../js/conferenceForms/viaCep.js"></script>
-    </body>
-    </html>
-<!--   ANTIGO FORMS
-    <main>
-        <div class="conteiner-father">
-            <form>
-                <div>
-                    <div>
-                        <div id="TESTE">
-                            <label for="name-input" >Nome: </label>
-                            <input type="text" placeholder="name" id="name-input">
-                            <label for="description-text">Descrição: </label>
-                            <textarea cols="100" rows="5" placeholder="coloque a descrição do evento aqui" id="description-text"></textarea>
-                        </div>
-                        <label for="date-input">data</label>
-                        <input type="date" id="date-input">
-                    </div>
-                    <div class="conteiner-children">
-                        <label for="cep-input">cep</label>
-                        <input type="number" placeholder="cep" id="cep-input">
-                    </div>
-                    <div class="conteiner-children">
-                        <label for="street-input">Rua</label>
-                        <input type="text" id="street-input" placeholder="Rua">
-                    </div>
-                    <label for="neighborhood-input">Bairro</label>
-                    <input type="text" id="neighborhood-input" placeholder="Bairro">
-                    <label for="city-input">Cidade</label>
-                    <input type="text" id="city-input" placeholder="Cidade">
-                    <label for="state-input">Estado</label>
-                    <input type="text" id="state-input" placeholder="Estado">
-                    <label for="complement-input">Complemento</label>
-                    <input type="text" id="complement-input" placeholder="Complemento">
-                </div>
-                <button type= "button"id="register-btn">Cadastra</button>
-            </form>
-        </div>
-        <section id="errorPopOut" class="pop-out hidden">
-            <span id="errorMessage"></span>
-            <div class="progress-bar"></div>
-        </section>
-
-        <section id="overlay" class="hidden"></section>
-    </main>
     <script type="module" src="../js/conferenceForms/conferenceForms.js"></script>
     <script type="module" src="../js/conferenceForms/viaCep.js"></script>
 </body>
