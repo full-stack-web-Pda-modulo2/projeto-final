@@ -1,4 +1,4 @@
-import { mostrarErro } from "./modal.js"
+import { showErro } from "./modal.js"
 //  pegando os inputs necessários para o preenchimento de dados de eventos 
 const nameConference = document.getElementById("name-input");
 const description = document.getElementById("description-text");
@@ -12,7 +12,7 @@ const datePublic = document.getElementById("date-input");
 const complement = document.getElementById("complement-input");
 
 //  array do banco de dados
-let bd = [
+ export let bd = [
     {
         id: 1,
         name: "Introdução à Libras",
@@ -160,7 +160,7 @@ function checkFilled() {
 }
 
 // seria uma verificação de cep ainda não está colocada no código estou trabalhando nessa parte 
-function verificaCep(cep){
+function checkCEP(cep){
     if(!cep.trim()) {
         throw new Error("Preencha o CEP");
     }
@@ -188,7 +188,8 @@ registerBtn.addEventListener("click", (event)=>{
         bd.push(proxConference);
         console.log(bd)
     } catch (e) {
-        mostrarErro(e.message);
+        //  aparece a mensagem de erro na tela 
+        showErro(e.message);
     }
     
 })
