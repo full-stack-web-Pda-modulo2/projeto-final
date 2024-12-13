@@ -6,7 +6,7 @@ export function mostrarErro(mensagem){
 
     //Define a mensagem e exibe o pop-out
     errorMessage.textContent= mensagem;
-    popOut.classList.romove("hidden");
+    popOut.classList.remove("hidden");
     popOut.classList.add("show");
 
     //Reinicia a animação da barra de progresso
@@ -18,7 +18,7 @@ export function mostrarErro(mensagem){
 
 //Oculta o pop-out após 3 segundos
 setTimeout(()=>{
-    popOut.classList.romove("show");
+    popOut.classList.remove("show");
     setTimeout(() => {
         popOut.classList.add("hidden");
     }, 300);//Espera a transição terminar antes de ocultar completamente
