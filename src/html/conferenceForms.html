@@ -42,6 +42,10 @@
                             <label for="myFile" id="labelMyFile">enviar image</label>
                             <input type="file" id="myFile" accept="image/png, image/jpeg">
                         </div>
+                        <div id="previewContainer">
+                            <p id="message">Nenhuma imgem selecionada</p>
+                            <img src="" alt="Pré-visualização da imagem" id="previewImage">
+                        </div>
                     <div>
                         <label for="description-text">Descrição: </label>
                         <textarea cols="100" rows="5" placeholder="coloque a descrição do evento aqui" id="description-text"></textarea>
@@ -58,6 +62,7 @@
 
         <section id="overlay" class="hidden"></section>
     </main>
+    <script type="module" src="../js/conferenceForms/myFile.js"></script>
     <script type="module" src="./../js/conferenceForms/conferenceForms.js"></script>
    <script type="module" src="./../js/conferenceForms/viaCep.js"></script>
 </body>
