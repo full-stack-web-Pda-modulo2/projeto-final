@@ -1,4 +1,4 @@
-import { mostrarErro } from "./modal.js"
+import { showErro } from "./modal.js"
 //  pegando os inputs necessários para o preenchimento de dados de eventos 
 const nameConference = document.getElementById("name-input");
 const description = document.getElementById("description-text");
@@ -12,7 +12,49 @@ const datePublic = document.getElementById("date-input");
 const complement = document.getElementById("complement-input");
 
 //  array do banco de dados
-let bd = [];
+ export let bd = [
+    {
+        id: 1,
+        name: "Introdução à Libras",
+        content: "Aprenda os fundamentos da Língua Brasileira de Sinais.",
+        location: "São Paulo, SP",
+        datePublic: "2024-12-01",
+        img: "https://example.com/images/intro-libras.jpg"
+    },
+    {
+        id: 2,
+        name: "Curso Avançado de Libras",
+        content: "Aprofunde seus conhecimentos em Libras com este curso avançado.",
+        location: "Rio de Janeiro, RJ",
+        datePublic: "2024-12-05",
+        img: "https://example.com/images/curso-avancado-libras.jpg"
+    },
+    {
+        id: 3,
+        name: "Sinais para Profissionais de Saúde",
+        content: "Aprenda sinais específicos para comunicação em ambientes de saúde.",
+        location: "Belo Horizonte, MG",
+        datePublic: "2024-12-10",
+        img: "https://example.com/images/sinais-saude.jpg"
+    },
+    {
+        id: 4,
+        name: "Libras no Contexto Escolar",
+        content: "Estratégias para usar Libras no ambiente educacional.",
+        location: "Curitiba, PR",
+        datePublic: "2024-12-15",
+        img: "https://example.com/images/libras-escolar.jpg"
+    },
+    {
+        id: 5,
+        name: "História e Cultura Surda",
+        content: "Descubra a história e a cultura da comunidade surda.",
+        location: "Salvador, BA",
+        datePublic: "2024-12-20",
+        img: "https://example.com/images/historia-cultura-surda.jpg"
+    },
+    6
+];
 
 // Classe adress, classe para o endereco do evento
 class Adress {
@@ -100,7 +142,6 @@ class Conference extends Adress {
 }
 
 
-
 //  funcao para verificar o preenchimento de todos os campos do formulario
 function checkFilled() {
     if (
@@ -119,7 +160,7 @@ function checkFilled() {
 }
 
 // seria uma verificação de cep ainda não está colocada no código estou trabalhando nessa parte 
-function verificaCep(cep){
+function checkCEP(cep){
     if(!cep.trim()) {
         throw new Error("Preencha o CEP");
     }
@@ -130,17 +171,26 @@ function verificaCep(cep){
 }
 
 //  botão que vai criar um evento ao clicar nele e adicionar no banco de dados
-
 registerBtn.addEventListener("click", (event)=>{
     event.preventDefault();
     try {
         checkFilled();
         //falta colocar o id 
-        const newConference = new Conference(id ,nameConference.value, description.value, [cep.value, street.value, neighborhood.value, city.value, state.value, complement.value], datePublic.value, "imagem");
+        const newConference = new Conference(bd[bd.length-1],nameConference.value, description.value, [cep.value, street.value, neighborhood.value, city.value, state.value, complement.value], datePublic.value, "imagem");
         
-    console.log(newConference);
+        // atribui o ultimo valor do array banco de dados a variavel newConference
+        bd[bd.length-1] = newConference
+
+        //  cria uma variavel que seria o proximo id do proximo evento
+        const proxConference = bd[bd.length-1].id+1
+
+        // coloca a variavel proxConference é um número na última posição do array banco de dados
+        bd.push(proxConference);
+        console.log(bd)
     } catch (e) {
-        mostrarErro(e.message);
+        //  aparece a mensagem de erro na tela 
+        showErro(e.message);
     }
     
 })
+
