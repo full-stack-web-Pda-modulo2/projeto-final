@@ -85,7 +85,8 @@ class Adress {
         };
     }
 }
-class Conference {
+
+class Conference extends Adress{
     constructor(title, img, content, adress, initialDate, finalDate) {
       this.title = title;
       this.img = img;
@@ -143,7 +144,8 @@ class Conference {
 
       document.body.appendChild(eventSection);
 
-
+    }
+}
 class Conference {
     constructor(title, img, content, adress, initialDate, finalDate) {
       this.title = title;
@@ -222,7 +224,6 @@ class Conference {
 
     conference.displayEvent();
   });
-  }
 
   document.getElementById("register-btn").addEventListener("click", () => {
     const title = document.getElementById("name-input").value;
@@ -295,4 +296,3 @@ registerBtn.addEventListener("click", (event)=>{
     }
     
 })
-
