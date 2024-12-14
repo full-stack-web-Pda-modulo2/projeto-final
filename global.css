@@ -14,8 +14,11 @@
     /* Tons complementares */
     --accent-color: #F28C99; /* Destaques chamativos (CTA, botões importantes) */
     --accent-color-trans:#f28c9a91;
+    --accent-color-trans-secondary:#f28c9a6b;
+
     --neutral-color: #4DC2A5; /* Fundo de elementos ou seções neutras */
-  
+    --neutral-color-trans:#37d8b0af;
+
     /* Fundos e superfícies */
     --background-color: #FFFFFF; /* Fundo principal */
     --background-secondary: #F7F7F7; /* Fundos alternativos */

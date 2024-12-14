@@ -1,145 +1,93 @@
 @import 'global.css';
 /*importando as var do arquivo global*/
-
 header{
-
-    background-color: var(--accent-color-trans);
-  /*deixa a nav-bar acompanhando durante a rolagem*/
-    padding: 10px 20px;
-    color: var(--ninth-color);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);/*sombra suave para header*/
-     position: sticky;
-    top: 0;
-    z-index: 1000; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
 }
 
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--accent-color-trans);
+    color: var(--text-primary);
+    z-index: 1000;
+    transition: backgroun-color 0.3s ease, box-shadow 0.3s ease ;
+}
+.navbar.scrolled{
+    background-color:var( --accent-color-trans-secondary) ;
+    box-shadow:  0 4px 6px rgba(0, 0, 0, 0.3);
+}
 
-nav{
+.navbar-container{
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 10px 20px;
 }
 
+.logo{
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+}
 
-  .logo img {
-    height:100px; 
-    width: auto; 
-    display: block; 
-    filter: drop-shadow(0px 5px 8px rgba(0,0,0,0.3));/*Sombra para a logo*/
-  }
-
-
-
-  @media (max-width: 768px) {
-    .logo img {
-      height: 40px;
-    }
-  }
-  
-  .nav-list{
+.nav-links{
     list-style: none;
     display: flex;
-    gap: 20px;
-  }
-  /*Estilo para os links dentro da lista de navegação*/
-.nav-list li a{
-    color: var(--color-secondary);
+    gap: 15px;
+}
+.nav-links a{
     text-decoration: none;
-    font-size: 16px;
-    font-family:Nunito_Sans;
-    font-weight: 500;
-    transition:color 0.3s ease,text-shadow 0.3s ease; 
+    color:var( --text-primary);
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
-.nav-list li a:hover{
-    color: var(
-        --background-secondary
-    );
-   text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+
+.nav-links a:hover{
+    background-color: var(--neutral-color-trans);
+    color:var(--background-color);
 }
-.mobile-menu{
+
+.menu-toggle{
     display: none;
-    flex-direction: column;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--primary-color);
     cursor: pointer;
 }
 
-.mobile-menu div{
-    width: 25px;
-    height: 3px;
-    margin: 5px;
-    background-color: var(  --background-color);
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-}
-.overlay{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-/*Definindo a aparência das linhas do hambúrguer*/
-.mobile-menu .line1,.mobile-menu .line2,.mobile-menu .line3{
-    width: 25px;
-    height: 3px;
-    background-color:var(--fifth-color);
-    margin: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-}
-@media (max-width:768px){
-
-    .overlay {
-        flex-direction: column; /* Alinha os elementos verticalmente */
-        gap: 10px;
-    }
-
-    .nav-list{
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 100%;
-        height: calc(100vh - 60px);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color:  var(--accent-color-trans);
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
+@media(max-width:768px) {
+    .nav-links{
         display: none;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        flex-direction: column;
+        background-color: var(--accent-color-trans-secondary);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
-    .nav-list.active{
+
+    .nav-links.show{
         display: flex;
-        transform: translateX(0);
     }
-    .mobile-menu{
-        display: flex;
-    }
-    .mobile-menu.active .line1{
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    .mobile-menu.active .line2{
-        opacity: 0;
-    }
-    .mobile-menu.active .line3{
-        transform: rotate(-45deg) translate(5px,-5px);
-    }
-@media(max-width:375px){
-    .nav-list li a{
-        font-size: 14px;
-    }
-    .logo{
-        font-size: 20px;
+    .menu-toggle{
+        display: block;
     }
 }
+main{
+    margin-top: 60px;
+
+    padding: 20px;
 }
 
 .nav-button a{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
     background: linear-gradient(90deg,var(--primary-color),var(--secondary-color));
     border: none;
     padding: 12px 14px;
@@ -157,33 +105,5 @@ nav{
     transform: scale(1.1);/*Aumenta o botão no hover*/
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-/* Responsividade */
-@media (max-width: 768px) {
-    .bnt-nav {
-        font-size: 14px; /* Reduz o tamanho da fonte em telas menores */
-        padding: 12px 28px; /* Ajusta o padding para tamanhos menores */
-        border-radius: 40px; /* Bordas ainda arredondadas, mas um pouco mais sutis */
-    }
 
-    .bnt-nav::before {
-        width: 150%; /* Ajusta o tamanho do efeito circular para telas menores */
-        height: 150%;
-    }
 
-    .bnt-nav:hover {
-        transform: translateY(-4px); /* Menos elevação para telas menores */
-    }
-}
-
-@media (max-width: 480px) {
-    .bnt-nav {
-        font-size: 12px; /* Fontes ainda menores em telas muito pequenas */
-        padding: 10px 24px; /* Ajuste do padding para telas pequenas */
-        border-radius: 30px; /* Bordas mais sutis */
-    }
-
-    .bnt-nav::before {
-        width: 130%; /* Ajuste do tamanho do efeito para telas pequenas */
-        height: 130%;
-    }
-}
