@@ -4,13 +4,8 @@ export function showErro(message){
     const errorMessage = document.getElementById('errorMessage');
     const progressBar =document.querySelector(".progress-bar");
 
-<<<<<<< HEAD
     //Define a message e exibe o pop-out
     errorMessage.textContent= message;
-=======
-    //Define a mensagem e exibe o pop-out
-    errorMessage.textContent= mensagem;
->>>>>>> develop-odilon
     popOut.classList.remove("hidden");
     popOut.classList.add("show");
 
