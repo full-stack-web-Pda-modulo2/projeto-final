@@ -4,17 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./../css/conferenceForms/form.css">
-    <link rel="stylesheet" href="/src/css/landingPage/casdastro.css">
+    <link rel="stylesheet" href="../css/conferenceForms/casdastro.css">
+    <link rel="shortcut icon" href="../assets/FAVICON/favicon-16x16.png" type="image/x-icon">
     <title>Cadastro de Eventos</title>
 </head>
 <body>
     <!--Este é o formulário de cadastro de eventos-->
    <!-- <script type="module" src="viaCep.js"></script> -->
     <main>
-        <div class="conteiner-father">
+        <div>
             <form>
                 <div>
                     <div>
+                        <label for="name-input" >Nome: </label>
+                        <input type="text" placeholder="name" id="name-input">
+                        <label for="cep-input">CEP:</label>
+                        <input type="number" placeholder="cep" id="cep-input">
+                        <label for="street-input">Rua:</label>
+                        <input type="text" id="street-input" placeholder="Rua">
+                        <label for="neighborhood-input">Bairro:</label>
+                        <input type="text" id="neighborhood-input" placeholder="Bairro">
+                        <label for="city-input">Cidade:</label>
+                        <input type="text" id="city-input" placeholder="Cidade">
+                        <label for="state-input">Estado:</label>
+                        <input type="text" id="state-input" placeholder="Estado">
+                        <label for="complement-input">Complemento:</label>
+                        <input type="text" id="complement-input" placeholder="Complemento">
+                    </div>
+                  
                         <div>
                             <label for="date-input-fist">data-incial:</label>
                             <input type="date" id="date-input-fist">
@@ -23,35 +40,19 @@
                         </div>
                         <div id="conteinerMyfile">
                             <label for="myFile" id="labelMyFile">enviar image</label>
-                            <input type="file" id="myFile">
-                            <!-- <input type="file" id="myFile"  --accept="image/png, image/jpeg"> -->
-                            
+                            <input type="file" id="myFile" accept="image/png, image/jpeg">
                         </div>
-                        <div id="TESTE">
-                            <label for="name-input" >Nome: </label>
-                            <input type="text" placeholder="name" id="name-input">
-                            <label for="description-text">Descrição: </label>
-                            <textarea cols="100" rows="5" placeholder="coloque a descrição do evento aqui" id="description-text"></textarea>
+                        <div id="previewContainer">
+                            <p id="message">Nenhuma imgem selecionada</p>
+                            <img src="" alt="Pré-visualização da imagem" id="previewImage">
                         </div>
+                    <div>
+                        <label for="description-text">Descrição: </label>
+                        <textarea cols="100" rows="5" placeholder="coloque a descrição do evento aqui" id="description-text"></textarea>
                     </div>
-                    <div class="conteiner-children">
-                        <label for="cep-input">cep</label>
-                        <input type="number" placeholder="cep" id="cep-input">
-                    </div>
-                    <div class="conteiner-children">
-                        <label for="street-input">Rua</label>
-                        <input type="text" id="street-input" placeholder="Rua">
-                    </div>
-                    <label for="neighborhood-input">Bairro</label>
-                    <input type="text" id="neighborhood-input" placeholder="Bairro">
-                    <label for="city-input">Cidade</label>
-                    <input type="text" id="city-input" placeholder="Cidade">
-                    <label for="state-input">Estado</label>
-                    <input type="text" id="state-input" placeholder="Estado">
-                    <label for="complement-input">Complemento</label>
-                    <input type="text" id="complement-input" placeholder="Complemento">
+
                 </div>
-                <button type= "button"id="register-btn">Cadastra</button>
+                <div class="fatherButton"><button type= "button"id="register-btn">Cadastra</button></div>
             </form>
         </div>
         <section id="errorPopOut" class="pop-out hidden">
@@ -61,6 +62,7 @@
 
         <section id="overlay" class="hidden"></section>
     </main>
+    <script type="module" src="../js/conferenceForms/myFile.js"></script>
     <script type="module" src="./../js/conferenceForms/conferenceForms.js"></script>
    <script type="module" src="./../js/conferenceForms/viaCep.js"></script>
 </body>

@@ -3,15 +3,14 @@
 
 header{
 
-    /* background-color: var(--primary-color); */
-  
+    background-color: var(--accent-color-trans);
+  /*deixa a nav-bar acompanhando durante a rolagem*/
     padding: 10px 20px;
     color: var(--ninth-color);
-    /* box-shadow: 0 8px 15px rgba(0,0,0,0.2);/*sombra suave para header*/
-    /* border-bottom: 4px solid rgba(106,131,131,0.8); */ 
-    /* position: sticky;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);/*sombra suave para header*/
+     position: sticky;
     top: 0;
-    z-index: 1000; */
+    z-index: 1000; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,7 +55,9 @@ nav{
     transition:color 0.3s ease,text-shadow 0.3s ease; 
 }
 .nav-list li a:hover{
-    color: var(--neutral-color);
+    color: var(
+        --background-secondary
+    );
    text-shadow: 0 3px 6px rgba(0,0,0,0.4);
 }
 .mobile-menu{
@@ -105,7 +106,7 @@ nav{
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: var(--secondary-color);
+        background-color:  var(--accent-color-trans);
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
         display: none;
@@ -137,99 +138,25 @@ nav{
 }
 }
 
-.bnt-nav {
-    color: var(--color-letters); /* Cor inicial do texto */
-    font-family: 'NunitoSans-VariableFont', Arial, sans-serif; /* Fonte moderna */
-    font-weight: 600; /* Peso intermediário */
-    font-size: 16px; /* Tamanho de fonte ajustado */
-    text-align: center;
-    text-decoration: none;
-    background: linear-gradient(135deg, var(--sixth-color), var(--seventh-color)); /* Fundo gradiente */
-    padding: 14px 36px; /* Tamanho confortável */
-    border: 2px solid var(--sixth-color); /* Borda inicial com destaque */
-    outline: none;
-
-    /* Estilo criativo */
-    border-radius: 50px; /* Formato de pílula */
-    display: inline-block;
+.nav-button a{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: linear-gradient(90deg,var(--primary-color),var(--secondary-color));
+    border: none;
+    padding: 12px 14px;
+    font-size: 16px;
+    border-radius: 18px;
     cursor: pointer;
-    position: relative; /* Para animação */
-    overflow: hidden; /* Controlar efeitos visuais */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombras impactantes */
-    transition: 
-        transform 0.3s ease, 
-        box-shadow 0.3s ease, 
-        background 0.3s ease, 
-        border-color 0.3s ease; /* Suavidade nas transições */
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
-.bnt-nav::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-        rgba(255, 255, 255, 0.4),
-        rgba(255, 255, 255, 0.2),
-        transparent
-    ); /* Efeito gradiente circular */
-    border-radius: 50%;
-    animation: spin 3s linear infinite, pulse 1.5s ease-in-out infinite; /* Animação contínua e pulso */
-    z-index: 0; /* Fica atrás do texto */
+.nav-button a:hover{
+    background: var(--accent-color);
+    transform: scale(1.1);/*Aumenta o botão no hover*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
-.bnt-nav:hover::before {
-    animation: spin 1s linear infinite, pulse 1s ease-in-out infinite; /* Mais rápido no hover */
-}
-
-.bnt-nav:hover {
-    color: var(--color-letters-secondary); /* Contraste no texto */
-    background: linear-gradient(135deg, var(--seventh-color), var(--fifth-color)); /* Fundo mais vibrante no hover */
-    box-shadow: 
-        0 15px 25px rgba(0, 0, 0, 0.5), /* Sombra externa mais intensa */
-        0 10px 20px rgba(0, 0, 0, 0.3); /* Segunda camada de sombra */
-    transform: translateY(-6px); /* Elevação mais pronunciada */
-    border-color: var(--fifth-color); /* Cor de borda muda no hover */
-}
-
-.bnt-nav span {
-    position: relative; /* Texto acima dos efeitos */
-    z-index: 1;
-}
-
-.bnt-nav:active {
-    transform: translateY(3px); /* Feedback visual de clique */
-    box-shadow: 
-        0 6px 12px rgba(0, 0, 0, 0.5), /* Sombra reduzida */
-        inset 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra interna ao clicar */
-    background: linear-gradient(135deg, var(--fifth-color), var(--fourth-color)); /* Fundo muda ao clicar */
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.6;
-    }
-}
-
-
-
-
-
-/* Responsividade */
 /* Responsividade */
 @media (max-width: 768px) {
     .bnt-nav {
@@ -258,9 +185,5 @@ nav{
     .bnt-nav::before {
         width: 130%; /* Ajuste do tamanho do efeito para telas pequenas */
         height: 130%;
-    }
-
-    .bnt-nav:hover {
-        transform: translateY(-3px); /* Menos elevação em telas muito pequenas */
     }
 }

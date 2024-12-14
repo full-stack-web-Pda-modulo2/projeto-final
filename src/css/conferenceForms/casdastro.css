@@ -1,0 +1,166 @@
+@import url(./../../../global.css);
+/* Reset Básico */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Corpo da Página */
+body {
+    background: linear-gradient(to bottom, teal, rgb(137, 237, 237));
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container Principal */
+form {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+    box-shadow:0px 5px 5px rgba(0, 0, 0, 0.822);
+    animation: fadeIn 0.9s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Espaçamento entre os campos */
+form div {
+    margin-bottom: 1rem;
+}
+
+/* Estilo de Títulos e Campos */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    transition: background-color 0.7s ease, border-color 0.7s ease;
+}
+
+/* Estilo exclusivo para textarea */
+textarea {
+    border: 1px solid #000;
+    background: #a4ece6;
+    resize: vertical; /* Permite redimensionar apenas na vertical */
+    box-shadow: 1px 1px 2px #333;
+}
+
+input[type=file]{
+    display: none;
+}
+
+.fatherButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Efeito Hover */
+input:hover, textarea:hover {
+    background: #d0f3f0;
+    border-color: #301c41;
+}
+
+
+
+/* Botão de Cadastro */
+button {
+    background-color: #03dcf8ea;
+    color: #fff;
+    border: none;
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.9s ease,color 0.9s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #00e1ff8e;
+    color: #000;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    form {
+        padding: 1.5rem;
+    }
+    
+    input, textarea {
+        font-size: 0.9rem;
+    }
+}
+
+
+/*imagem do input da myfile*/
+#conteinerMyfile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+#labelMyFile{
+text-transform: uppercase;
+text-align: center;
+cursor: pointer;
+box-shadow: 1px 1px 2px #333;
+border: 2px  solid  #301c41;
+width: 150px;
+height: 20px;
+transition: transform 1.5s ease;
+transform: translateX(0) scale(1.3);
+}
+
+#labelMyFile:hover,
+#labelMyFile:focus{
+    transform: translateX(10px) scale(1.5);
+    box-shadow:0px 5px 5px rgba(0, 0, 0, 0.822)
+}
+
+#previewImage{
+    display: none;
+    width: 100%;
+    max-width: 300px;
+    height:auto;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 05s ease-in-out;
+}
+
+#previewContainer{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#message{
+    font-size: 14px;
+    color:var(--text-secondary);
+    animation: fadeIn 0.9s ease-in-out;
+}
