@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { showErro } from "./modal.js"
-=======
-import { mostrarErro } from "./modal.js"
->>>>>>> develop-odilon
 //  pegando os inputs necessários para o preenchimento de dados de eventos 
 const nameConference = document.getElementById("name-input");
 const description = document.getElementById("description-text");
@@ -12,7 +8,6 @@ const neighborhood = document.getElementById("neighborhood-input");
 const city = document.getElementById("city-input");
 const state = document.getElementById("state-input");
 const registerBtn = document.getElementById("register-btn");
-<<<<<<< HEAD
 const complement = document.getElementById("complement-input");
 const dateInitial = document.getElementById("date-input-fist");
 const dateFinal = document.getElementById("date-input-second");
@@ -20,22 +15,11 @@ const image = document .getElementById("myFile");
 
 //  array do banco de dados
  export let bd = [
-=======
-const datePublic = document.getElementById("date-input");
-const complement = document.getElementById("complement-input");
-
-//  array do banco de dados
-let bd = [
->>>>>>> develop-odilon
     {
         id: 1,
         name: "Introdução à Libras",
         content: "Aprenda os fundamentos da Língua Brasileira de Sinais.",
-<<<<<<< HEAD
         location: ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"],
-=======
-        location: "São Paulo, SP",
->>>>>>> develop-odilon
         datePublic: "2024-12-01",
         img: "https://example.com/images/intro-libras.jpg"
     },
@@ -43,11 +27,7 @@ let bd = [
         id: 2,
         name: "Curso Avançado de Libras",
         content: "Aprofunde seus conhecimentos em Libras com este curso avançado.",
-<<<<<<< HEAD
         location: ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"],
-=======
-        location: "Rio de Janeiro, RJ",
->>>>>>> develop-odilon
         datePublic: "2024-12-05",
         img: "https://example.com/images/curso-avancado-libras.jpg"
     },
@@ -55,11 +35,7 @@ let bd = [
         id: 3,
         name: "Sinais para Profissionais de Saúde",
         content: "Aprenda sinais específicos para comunicação em ambientes de saúde.",
-<<<<<<< HEAD
         location: ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"],
-=======
-        location: "Belo Horizonte, MG",
->>>>>>> develop-odilon
         datePublic: "2024-12-10",
         img: "https://example.com/images/sinais-saude.jpg"
     },
@@ -67,11 +43,7 @@ let bd = [
         id: 4,
         name: "Libras no Contexto Escolar",
         content: "Estratégias para usar Libras no ambiente educacional.",
-<<<<<<< HEAD
         location: ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"],
-=======
-        location: "Curitiba, PR",
->>>>>>> develop-odilon
         datePublic: "2024-12-15",
         img: "https://example.com/images/libras-escolar.jpg"
     },
@@ -79,18 +51,10 @@ let bd = [
         id: 5,
         name: "História e Cultura Surda",
         content: "Descubra a história e a cultura da comunidade surda.",
-<<<<<<< HEAD
         location: ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"],
         datePublic: "2024-12-20",
         img: "https://example.com/images/historia-cultura-surda.jpg"
     }
-=======
-        location: "Salvador, BA",
-        datePublic: "2024-12-20",
-        img: "https://example.com/images/historia-cultura-surda.jpg"
-    },
-    6
->>>>>>> develop-odilon
 ];
 
 // Classe adress, classe para o endereco do evento
@@ -123,16 +87,11 @@ class Adress {
     }
 }
 //  Classe de conference(Eventos)
-<<<<<<< HEAD
 class Conference {
-=======
-class Conference extends Adress {
->>>>>>> develop-odilon
     #id
     #name
     #content
     #datePublic
-<<<<<<< HEAD
     #durationConference 
     #img
     #initialDate
@@ -148,18 +107,6 @@ class Conference extends Adress {
       this.#initialDate = new Date(initialDate);
       this.#finalDate = new Date(finalDate);
       this.#img = img;
-=======
-    #img
-
-    constructor(id, name, content, location, datePublic, img) {
-        // Chama o construtor da classe pai (Adress) com os dados de Adress
-        super(...location);  // location seria um array com [cep, street, neighborhood, city, state, complement]
-        this.#id = id;
-        this.#name = name;
-        this.#content = content;
-        this.#datePublic = datePublic;
-        this.#img = img;
->>>>>>> develop-odilon
     }
 
     get id() {
@@ -190,7 +137,6 @@ class Conference extends Adress {
         return this.#datePublic;
     }
 
-<<<<<<< HEAD
     set datePublic(date) {
         date = new Date().getTime();
         this.#datePublic =  date;
@@ -218,10 +164,6 @@ class Conference extends Adress {
 
     set durationConference(time) {
         this.#durationConference = time;
-=======
-    set datePublic(datePublic) {
-        this.#datePublic = datePublic;
->>>>>>> develop-odilon
     }
 
     // Acessando PegaDados da classe pai diretamente
@@ -283,10 +225,6 @@ class Conference extends Adress {
   }
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> develop-odilon
 //  funcao para verificar o preenchimento de todos os campos do formulario
 function checkFilled() {
     if (
@@ -297,21 +235,15 @@ function checkFilled() {
         !neighborhood.value.trim() ||
         !city.value.trim() ||
         !state.value.trim() ||
-<<<<<<< HEAD
         !complement.value.trim() ||
         !dateInitial.value.trim() ||
         !dateFinal.value.trim() ||
         !image
-=======
-        !datePublic.value.trim() ||
-        !complement.value.trim()
->>>>>>> develop-odilon
     ) {
         throw Error("Preencha todas as informações");
     }
 }
 
-<<<<<<< HEAD
 //  botão que vai criar um evento ao clicar nele e adicionar no banco de dados
 registerBtn.addEventListener("click", (event)=>{
     event.preventDefault();
@@ -336,37 +268,10 @@ registerBtn.addEventListener("click", (event)=>{
 
         //  cria uma variavel que seria o proximo id do proximo evento
         const proxConference = new Conference(bd[bd.length-1].id+1);
-=======
-// seria uma verificação de cep ainda não está colocada no código estou trabalhando nessa parte 
-function verificaCep(cep){
-    if(!cep.trim()) {
-        throw new Error("Preencha o CEP");
-    }
-    const verficarCaracteresEspeciais = /[^\w\s]/;
-    if(cep.includes(' ') || verficarCaracteresEspeciais.test(cep)) {
-        throw new Error("O CEP deve conter somente números");
-    }
-}
-
-//  botão que vai criar um evento ao clicar nele e adicionar no banco de dados
-registerBtn.addEventListener("click", (event)=>{
-    event.preventDefault();
-    try {
-        checkFilled();
-        //falta colocar o id 
-        const newConference = new Conference(bd[bd.length-1],nameConference.value, description.value, [cep.value, street.value, neighborhood.value, city.value, state.value, complement.value], datePublic.value, "imagem");
-        
-        // atribui o ultimo valor do array banco de dados a variavel newConference
-        bd[bd.length-1] = newConference
-
-        //  cria uma variavel que seria o proximo id do proximo evento
-        const proxConference = bd[bd.length-1].id+1
->>>>>>> develop-odilon
 
         // coloca a variavel proxConference é um número na última posição do array banco de dados
         bd.push(proxConference);
         console.log(bd)
-<<<<<<< HEAD
         
     } catch (e) {
         //  aparece a de erro na tela 
@@ -375,10 +280,3 @@ registerBtn.addEventListener("click", (event)=>{
     }
     
 })
-=======
-    } catch (e) {
-        mostrarErro(e.message);
-    }
-    
-})
->>>>>>> develop-odilon
