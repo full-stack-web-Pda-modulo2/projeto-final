@@ -4,13 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./../css/conferenceForms/form.css">
-    <link rel="stylesheet" href="../css/conferenceForms/casdastro.css">
+    <!-- <link rel="stylesheet" href="../css/conferenceForms/casdastro.css"> -->
     <link rel="shortcut icon" href="../assets/FAVICON/favicon-16x16.png" type="image/x-icon">
+    <link rel="stylesheet" href="./../css/landingPage/navbar.css">
     <title>Cadastro de Eventos</title>
 </head>
 <body>
     <!--Este é o formulário de cadastro de eventos-->
-   <!-- <script type="module" src="viaCep.js"></script> -->
+    <header>
+        <nav class="navbar"> 
+            <div class="navbar-container">
+                <a href="./../../index.html" class="logo">Pontes em Libras</a>
+                <button class="menu-toggle" aria-label="Abrir Menu">&#9776;</button>
+                <ul class="nav-links">
+                    <li class="nav-button">
+                        <a href="./../../index.html" class="button"><span>Home</span></a>
+                    </li>
+                    <li class="nav-button">
+                        <a href="./eventos.html" class="button"><span>EVENTOS</span></a>
+                    </li>
+                    <li class="nav-button">
+                        <a href="./sinais.html" class="button"><span>SINAIS</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
     <main>
         <div>
             <form>
@@ -52,7 +72,7 @@
                     </div>
 
                 </div>
-                <div class="fatherButton"><button type= "button"id="register-btn">Cadastra</button></div>
+                <div class="fatherButton"><button type= "button" id="register-btn">Cadastra</button></div>
             </form>
         </div>
         <section id="errorPopOut" class="pop-out hidden">

@@ -195,78 +195,52 @@ export let bd = [
 
 console.log(bd);
 
-// função que cria um evento usando a classe conference 
-function createConference(name, content, location, date) {
-    try {
-        checkFilled();
-    } catch (error) {
-        console.error(error.message)
-    }
-    const newConference = new Conference(name, content, location, date);
-    bd.push(newConference);
-    console.log(newConference);
-}
-
-//  botão para adicionar o evento no banco de dados 
-registerBtn.addEventListener("click", (event) =>{
-    event.preventDefault();
-    checkFilled();
-    const newConference = createConference(nameConference.value, description.value,[cep.value, street.value, neighborhood.value, city.value,state.value ]);
-    console.log("Banco de Dados ", bd)
-    nameConference.value = '';
-    description.value = ''
-    cep.value = '';
-    street.value = '';
-    neighborhood.value = '';
-    city.value = '';
-    state.value = '';
-})
 //  botão que vai criar um evento ao clicar nele e adicionar no banco de dados
 
-// document.addEventListener("DOMContentLoaded", () => {
-//     const registerBtn = document.getElementById("register-btn");
+document.addEventListener("DOMContentLoaded", () => {
+    const registerBtn = document.getElementById("register-btn");
     
-//     if (registerBtn) {
-//         registerBtn.addEventListener("click", (event)=>{
-//             event.preventDefault();
+    if (registerBtn) {
+        registerBtn.addEventListener("click", (event)=>{
+            event.preventDefault();
             
-//             try {
-//                 //  checa se todos os inputs tem algum valor
-//                 checkFilled();
+            try {
+                //  checa se todos os inputs tem algum valor
+                checkFilled();
         
-//                 //  instância um novo objeto do tipo Adress
-//                 const newAdress = new Adress(cep.value, street.value, neighborhood.value,  city.value, state.value, complement.value);
+                //  instância um novo objeto do tipo Adress
+                const newAdress = new Adress(cep.value, street.value, neighborhood.value,  city.value, state.value, complement.value);
                 
-//                 //Instância um novo objeto do tipo Conference
-//                 const newConference = new Conference(bd[bd.length-1].id,nameConference.value, description.value,  newAdress.getData, dateInitial.value, dateFinal.value);
+                //Instância um novo objeto do tipo Conference
+                const newConference = new Conference(bd[bd.length-1].id,nameConference.value, description.value,  newAdress.getData, dateInitial.value, dateFinal.value);
         
-//                 // verifica se as datas são válidas
-//                 newConference.isInitialDateValid();
-//                 newConference.isFinalDateValid();
+                // verifica se as datas são válidas
+                newConference.isInitialDateValid();
+                newConference.isFinalDateValid();
                 
-//                 // atribui o ultimo valor do array banco de dados a variavel newConference
-//                 bd[bd.length-1] = newConference;
+                // atribui o ultimo valor do array banco de dados a variavel newConference
+                bd[bd.length-1] = newConference;
         
-//                 //  cria uma variavel que seria o proximo id do proximo evento
-//                 const proxConference = new Conference(bd[bd.length-1].id+1);
+                //  cria uma variavel que seria o proximo id do proximo evento
+                const proxConference = new Conference(bd[bd.length-1].id+1);
         
-//                 // coloca a variavel proxConference é um número na última posição do array banco de dados
-//                 bd.push(proxConference);
-//                 console.log(bd)
+                // coloca a variavel proxConference é um número na última posição do array banco de dados
+                bd.push(proxConference);
+                console.log(bd)
         
                 
                 
-//             } catch (e) {
-//                 //  aparece a de erro na tela 
-//                 console.log(e)
-//                 showErro(e.message);
-//             }
+            } catch (e) {
+                //  aparece a de erro na tela 
+                console.log(e)
+                showErro(e.message);
+            }
             
-//         });
-//     } else {
-//         console.error("O elemento com ID 'register-btn' não foi encontrado.");
-//     }
-// });
+        });
+    } else {
+        console.error("O elemento com ID 'register-btn' não foi encontrado.");
+    }
+});
 
 
 
