@@ -186,12 +186,48 @@ function checkFilled() {
 
 //  array do banco de dados
 export let bd = [
-    new Conference(1, "Introdução à Libras", "Aprenda os fundamentos da Língua Brasileira de Sinais.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-01-12T14:00:00", "2024-03-12T16:00:00"),
-    new Conference(2, "Curso Avançado de Libras", "Aprofunde seus conhecimentos em Libras com este curso avançado.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-05", "2024-12-07"),
-    new Conference(3, "Sinais para Profissionais de Saúde", "Aprenda sinais específicos para comunicação em ambientes de saúde.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-10", "2024-12-12"),
-    new Conference(4, "Libras no Contexto Escolar", "Estratégias para usar Libras no ambiente educacional.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-15", "2024-12-17"),
-    new Conference(5, "História e Cultura Surda", "Descubra a história e a cultura da comunidade surda.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-20", "2024-12-22")
+    new Conference(
+        1, 
+        "Introdução à Libras", 
+        "Aprenda os fundamentos da Língua Brasileira de Sinais.", 
+        ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], 
+        "2024-01-12T14:00:00", // Data e hora no formato ISO completo
+        "2024-03-12T16:00:00"
+    ),
+    new Conference(
+        2, 
+        "Curso Avançado de Libras", 
+        "Aprofunde seus conhecimentos em Libras com este curso avançado.", 
+        ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], 
+        "2024-12-05T09:00:00", // Incluído horário para consistência
+        "2024-12-07T17:00:00"
+    ),
+    new Conference(
+        3, 
+        "Sinais para Profissionais de Saúde", 
+        "Aprenda sinais específicos para comunicação em ambientes de saúde.", 
+        ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], 
+        "2024-12-10T08:30:00", 
+        "2024-12-12T18:00:00"
+    ),
+    new Conference(
+        4, 
+        "Libras no Contexto Escolar", 
+        "Estratégias para usar Libras no ambiente educacional.", 
+        ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], 
+        "2024-12-15T10:00:00", 
+        "2024-12-17T16:30:00"
+    ),
+    new Conference(
+        5, 
+        "História e Cultura Surda", 
+        "Descubra a história e a cultura da comunidade surda.", 
+        ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], 
+        "2024-12-20T09:00:00", 
+        "2024-12-22T18:00:00"
+    )
 ];
+
 
 console.log(bd);
 

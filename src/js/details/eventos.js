@@ -19,7 +19,7 @@
 //     }
 // ];
 
-import {bd} from "./../conferenceForms/conferenceForms.js";
+import {bd, Conference} from "./../conferenceForms/conferenceForms.js";
 console.log("esta chegando aqui")
 
 
@@ -33,7 +33,7 @@ function carregarEventos() {
         card.innerHTML = `
             <div class="card-content">
                 <h2>${evento.name}</h2>
-                <p>${evento.formatDate()}</p>
+                <p>${evento.formatDate(evento.initialDate)}</p>
                 <p>${evento.location[3]}</p>
                 <a href="details.html?id=${evento.id}">Ver Detalhes</a>
             </div>
