@@ -1,15 +1,5 @@
 /* Importando variáveis globais */
-:root {
-    --primary-color: #3283B1;
-    --secondary-color: #34B0AC;
-    --accent-color: #F28C99;
-    --neutral-color: #4DC2A5;
-    --background-color: #FFFFFF;
-    --background-secondary: #F7F7F7;
-    --text-primary: #333333;
-    --text-secondary: #757575;
-    --text-on-dark: #FFFFFF;
-}
+@import url(/global.css);
 
 body {
     font-family: 'NunitoSans-VariableFont', sans-serif;
