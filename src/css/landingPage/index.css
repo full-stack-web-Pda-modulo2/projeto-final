@@ -1,4 +1,4 @@
-@import 'global.css'; /* Importa um arquivo CSS externo chamado global.css */
+@import url(./../../../global.css); /* Importa um arquivo CSS externo chamado global.css */
 
 body {
     background: linear-gradient(217deg, var(--neutral-color) 0%, rgb(255, 239, 239) 20%, rgba(255,255,255,1) 81%, var(--neutral-color) 96%);

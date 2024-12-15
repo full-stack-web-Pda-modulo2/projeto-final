@@ -91,13 +91,10 @@ class Conference {
     #id
     #name
     #content
-    #datePublic
-    #durationConference 
-    #img
     #initialDate
     #finalDate
 
-     constructor(id, name, content, location, initialDate, finalDate, img) {
+     constructor(id, name, content, location, initialDate, finalDate) {
       // Chama o construtor da classe pai (Adress) com os dados de Adress
       
       this.#id = id;
@@ -106,7 +103,6 @@ class Conference {
       this.location = location;
       this.#initialDate = new Date(initialDate);
       this.#finalDate = new Date(finalDate);
-      this.#img = img;
     }
 
     get id() {
@@ -133,15 +129,6 @@ class Conference {
         this.#content = content;
     }
 
-    get datePublic() {
-        return this.#datePublic;
-    }
-
-    set datePublic(date) {
-        date = new Date().getTime();
-        this.#datePublic =  date;
-    }
-
     get initialDate() {
         return this.#initialDate;
     }
@@ -158,14 +145,6 @@ class Conference {
         this.#finalDate = new Date(finalDate);
     }
 
-    get durationConference() {
-        return this.#durationConference;
-    }
-
-    set durationConference(time) {
-        this.#durationConference = time;
-    }
-
     // Acessando PegaDados da classe pai diretamente
     get dataConference() {
         return [this.#content, this.PegaDados, this.#name];  // Usando PegaDados da superclasse
@@ -177,6 +156,13 @@ class Conference {
       }
       console.log("Data válida")
     }
+
+    isFinalDateValid() {
+        if(this.finalDate.getTime() < Date.now()) {
+          throw new Error("Data inválida")
+        }
+        console.log("Data válida")
+      }
   
     getEventDuration() {
         const durationMs = this.finalDate.getTime() - this.initialDate.getTime();
@@ -237,8 +223,7 @@ function checkFilled() {
         !state.value.trim() ||
         !complement.value.trim() ||
         !dateInitial.value.trim() ||
-        !dateFinal.value.trim() ||
-        !image
+        !dateFinal.value.trim() 
     ) {
         throw Error("Preencha todas as informações");
     }
@@ -251,17 +236,16 @@ registerBtn.addEventListener("click", (event)=>{
     try {
         //  checa se todos os inputs tem algum valor
         checkFilled();
+
         //  instância um novo objeto do tipo Adress
-        const newAdress = new Adress(cep.value, street.value, neighborhood.value,  city.value, state.value, complement.value)
-        
-        //  transforma os valores input de datas em um objeto do tipo Date
-        // const initialDateobj = new Date(dateInitial.value)
-        // const finalDateobj = new Date(dateFinal.value)
+        const newAdress = new Adress(cep.value, street.value, neighborhood.value,  city.value, state.value, complement.value);
         
         //Instância um novo objeto do tipo Conference
-        const newConference = new Conference(bd[bd.length-1].id,nameConference.value, description.value,  newAdress.getData, dateInitial.value, dateFinal.value, "imagem");
+        const newConference = new Conference(bd[bd.length-1].id,nameConference.value, description.value,  newAdress.getData, dateInitial.value, dateFinal.value);
 
+        // verifica se as datas são válidas
         newConference.isInitialDateValid();
+        newConference.isFinalDateValid();
         
         // atribui o ultimo valor do array banco de dados a variavel newConference
         bd[bd.length-1] = newConference;
@@ -272,6 +256,8 @@ registerBtn.addEventListener("click", (event)=>{
         // coloca a variavel proxConference é um número na última posição do array banco de dados
         bd.push(proxConference);
         console.log(bd)
+
+        
         
     } catch (e) {
         //  aparece a de erro na tela 
