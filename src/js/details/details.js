@@ -15,9 +15,12 @@ function exibirDetalhesEvento() {
         document.getElementById("cidade-evento").textContent = evento.location[3];
         document.getElementById("estado-evento").textContent = evento.location[4];
         document.getElementById("complemento-evento").textContent = evento.location[5];
-        document.getElementById("data-evento-inicial").textContent = evento.initialDate;
-        document.getElementById("data-evento-final").textContent = evento.finalDate;
+        document.getElementById("data-evento-inicial").textContent = evento.formatDate(evento.initialDate);
+        document.getElementById("data-evento-final").textContent = evento.formatDate(evento.finalDate);
         document.getElementById("duracao-evento").textContent = evento.getEventDuration();
+        document.getElementById("abertura-evento").textContent = evento.timeOpen;
+        document.getElementById("fechamento-evento").textContent = evento.timeClose;
+
     } else {
         document.getElementById("detalhes-evento").innerHTML = `
             <p>Evento não encontrado. Por favor, volte para a página inicial.</p>

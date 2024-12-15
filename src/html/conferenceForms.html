@@ -57,14 +57,10 @@
                             <input type="date" id="date-input-fist">
                             <label for="date-input-second">data-final:</label>
                             <input type="date" id="date-input-second">
-                        </div>
-                        <div id="conteinerMyfile">
-                            <label for="myFile" id="labelMyFile">enviar image</label>
-                            <input type="file" id="myFile" accept="image/png, image/jpeg">
-                        </div>
-                        <div id="previewContainer">
-                            <p id="message">Nenhuma imgem selecionada</p>
-                            <img src="" alt="Pré-visualização da imagem" id="previewImage">
+                            <label for="time-input-open">horário de abertura:</label>
+                            <input type="time" id="time-input-open">
+                            <label for="time-input-close">horário de fechamento:</label>
+                            <input type="time" id="time-input-close">
                         </div>
                     <div>
                         <label for="description-text">Descrição: </label>
@@ -82,7 +78,6 @@
 
         <section id="overlay" class="hidden"></section>
     </main>
-    <script type="module" src="../js/conferenceForms/myFile.js"></script>
     <script type="module" src="./../js/conferenceForms/conferenceForms.js"></script>
    <script type="module" src="./../js/conferenceForms/viaCep.js"></script>
 </body>

@@ -49,8 +49,10 @@ export class Conference {
     #content
     #initialDate
     #finalDate
+    #timeOpen
+    #timeClose
 
-     constructor(id, name, content, location, initialDate, finalDate) {
+     constructor(id, name, content, location, initialDate, finalDate,timeOpen, timeClose) {
       // Chama o construtor da classe pai (Adress) com os dados de Adress
       
       this.#id = id;
@@ -59,6 +61,8 @@ export class Conference {
       this.location = location;
       this.#initialDate = new Date(initialDate);
       this.#finalDate = new Date(finalDate);
+      this.#timeOpen = timeOpen;
+      this.timeClose = timeClose;
     }
 
     get id() {
@@ -99,6 +103,22 @@ export class Conference {
 
     set finalDate(finalDate) {
         this.#finalDate = new Date(finalDate);
+    }
+
+    get timeOpen() {
+        return this.#timeOpen;
+    }
+
+    set timeOpen(timeOpen) {
+        this.#timeOpen = timeOpen;
+    }
+
+    get timeClose() {
+        return this.#timeClose;
+    }
+
+    set timeClose(timeClose) {
+        this.#timeClose = timeClose;
     }
 
     formatDate(date) {
@@ -186,16 +206,19 @@ function checkFilled() {
 
 //  array do banco de dados
 export let bd = [
-    new Conference(1, "Introdução à Libras", "Aprenda os fundamentos da Língua Brasileira de Sinais.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-01-12T14:00:00", "2024-03-12T16:00:00"),
-    new Conference(2, "Curso Avançado de Libras", "Aprofunde seus conhecimentos em Libras com este curso avançado.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-05", "2024-12-07"),
-    new Conference(3, "Sinais para Profissionais de Saúde", "Aprenda sinais específicos para comunicação em ambientes de saúde.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-10", "2024-12-12"),
-    new Conference(4, "Libras no Contexto Escolar", "Estratégias para usar Libras no ambiente educacional.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-15", "2024-12-17"),
-    new Conference(5, "História e Cultura Surda", "Descubra a história e a cultura da comunidade surda.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-20", "2024-12-22")
+    new Conference(1, "Introdução à Libras", "Aprenda os fundamentos da Língua Brasileira de Sinais.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-01-12", "2024-03-12", "10:00", "18:00"),
+    new Conference(2, "Curso Avançado de Libras", "Aprofunde seus conhecimentos em Libras com este curso avançado.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-05", "2024-12-07", "12:00", "19:00"),
+    new Conference(3, "Sinais para Profissionais de Saúde", "Aprenda sinais específicos para comunicação em ambientes de saúde.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-10", "2024-12-12", "13:00", "17:00"),
+    new Conference(4, "Libras no Contexto Escolar", "Estratégias para usar Libras no ambiente educacional.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-15", "2024-12-17", "09:00", "13:00"),
+    new Conference(5, "História e Cultura Surda", "Descubra a história e a cultura da comunidade surda.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-20", "2024-12-22", "17:00", "20:00")
 ];
 
 console.log(bd);
 
 //  botão que vai criar um evento ao clicar nele e adicionar no banco de dados
+
+const open = document.getElementById("time-input-open");
+const close = document.getElementById("time-input-close");
 
 document.addEventListener("DOMContentLoaded", () => {
     const registerBtn = document.getElementById("register-btn");
@@ -203,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (registerBtn) {
         registerBtn.addEventListener("click", (event)=>{
             event.preventDefault();
-            
+            console.log(open.value);
             try {
                 //  checa se todos os inputs tem algum valor
                 checkFilled();
@@ -212,7 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const newAdress = new Adress(cep.value, street.value, neighborhood.value,  city.value, state.value, complement.value);
                 
                 //Instância um novo objeto do tipo Conference
-                const newConference = new Conference(bd[bd.length-1].id,nameConference.value, description.value,  newAdress.getData, dateInitial.value, dateFinal.value);
+                const newConference = new Conference(bd[bd.length-1].id,nameConference.value, description.value,  newAdress.getData, dateInitial.value, dateFinal.value,open.value, close.value);
         
                 // verifica se as datas são válidas
                 newConference.isInitialDateValid();
@@ -226,65 +249,14 @@ document.addEventListener("DOMContentLoaded", () => {
         
                 // coloca a variavel proxConference é um número na última posição do array banco de dados
                 bd.push(proxConference);
-                console.log(bd)
         
                 
                 
             } catch (e) {
                 //  aparece a de erro na tela 
-                console.log(e)
                 showErro(e.message);
             }
             
         });
-    } else {
-        console.error("O elemento com ID 'register-btn' não foi encontrado.");
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-// registerBtn.addEventListener("click", (event)=>{
-//     event.preventDefault();
-    
-//     try {
-//         //  checa se todos os inputs tem algum valor
-//         checkFilled();
-
-//         //  instância um novo objeto do tipo Adress
-//         const newAdress = new Adress(cep.value, street.value, neighborhood.value,  city.value, state.value, complement.value);
-        
-//         //Instância um novo objeto do tipo Conference
-//         const newConference = new Conference(bd[bd.length-1].id,nameConference.value, description.value,  newAdress.getData, dateInitial.value, dateFinal.value);
-
-//         // verifica se as datas são válidas
-//         newConference.isInitialDateValid();
-//         newConference.isFinalDateValid();
-        
-//         // atribui o ultimo valor do array banco de dados a variavel newConference
-//         bd[bd.length-1] = newConference;
-
-//         //  cria uma variavel que seria o proximo id do proximo evento
-//         const proxConference = new Conference(bd[bd.length-1].id+1);
-
-//         // coloca a variavel proxConference é um número na última posição do array banco de dados
-//         bd.push(proxConference);
-//         console.log(bd)
-
-        
-        
-//     } catch (e) {
-//         //  aparece a de erro na tela 
-//         console.log(e)
-//         showErro(e.message);
-//     }
-    
-// })
