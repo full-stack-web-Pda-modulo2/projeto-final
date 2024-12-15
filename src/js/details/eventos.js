@@ -33,7 +33,7 @@ function carregarEventos() {
         card.innerHTML = `
             <div class="card-content">
                 <h2>${evento.name}</h2>
-                <p>${evento.initialDate}</p>
+                <p>${evento.formatDate()}</p>
                 <p>${evento.location[3]}</p>
                 <a href="details.html?id=${evento.id}">Ver Detalhes</a>
             </div>

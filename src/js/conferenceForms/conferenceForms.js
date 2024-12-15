@@ -9,51 +9,9 @@ const city = document.getElementById("city-input");
 const state = document.getElementById("state-input");
 const registerBtn = document.getElementById("register-btn");
 const complement = document.getElementById("complement-input");
+const dateInitial = document.getElementById("date-input-fist");
+const dateFinal = document.getElementById("date-input-second");
 
-//  array do banco de dados
-let bd = [
-    {
-        id: 1,
-        name: "Introdução à Libras",
-        content: "Aprenda os fundamentos da Língua Brasileira de Sinais.",
-        location: "São Paulo, SP",
-        datePublic: "2024-12-01",
-        img: "https://example.com/images/intro-libras.jpg"
-    },
-    {
-        id: 2,
-        name: "Curso Avançado de Libras",
-        content: "Aprofunde seus conhecimentos em Libras com este curso avançado.",
-        location: "Rio de Janeiro, RJ",
-        datePublic: "2024-12-05",
-        img: "https://example.com/images/curso-avancado-libras.jpg"
-    },
-    {
-        id: 3,
-        name: "Sinais para Profissionais de Saúde",
-        content: "Aprenda sinais específicos para comunicação em ambientes de saúde.",
-        location: "Belo Horizonte, MG",
-        datePublic: "2024-12-10",
-        img: "https://example.com/images/sinais-saude.jpg"
-    },
-    {
-        id: 4,
-        name: "Libras no Contexto Escolar",
-        content: "Estratégias para usar Libras no ambiente educacional.",
-        location: "Curitiba, PR",
-        datePublic: "2024-12-15",
-        img: "https://example.com/images/libras-escolar.jpg"
-    },
-    {
-        id: 5,
-        name: "História e Cultura Surda",
-        content: "Descubra a história e a cultura da comunidade surda.",
-        location: "Salvador, BA",
-        datePublic: "2024-12-20",
-        img: "https://example.com/images/historia-cultura-surda.jpg"
-    },
-
-];
 
 // Classe adress, classe para o endereco do evento
 class Adress {
@@ -84,84 +42,130 @@ class Adress {
         ];
     }
 }
+//  Classe de conference(Eventos)
+export class Conference {
+    #id
+    #name
+    #content
+    #initialDate
+    #finalDate
 
-class Conference {
-    constructor(title, img, content, adress, initialDate, finalDate) {
-      this.title = title;
-      this.img = img;
-      this.content = content;
-      this.adress = adress;
-      this.initialDate = new Date(initialDate);
-      this.finalDate = new Date(finalDate);
+     constructor(id, name, content, location, initialDate, finalDate) {
+      // Chama o construtor da classe pai (Adress) com os dados de Adress
+      
+      this.#id = id;
+      this.#name = name;
+      this.#content = content;
+      this.location = location;
+      this.#initialDate = new Date(initialDate);
+      this.#finalDate = new Date(finalDate);
+    }
+
+    get id() {
+        return this.#id;
+    }
+
+    set id(id) {
+        this.#id = id;
+    }
+
+    get name() {
+        return this.#name;
+    }
+
+    set name(name) {
+        this.#name = name;
+    }
+
+    get content() {
+        return this.#content;
+    }
+
+    set content(content) {
+        this.#content = content;
+    }
+
+    get initialDate() {
+            return this.#initialDate;
+        }
+
+    set initialDate(initialDate) {
+        this.#initialDate = new Date(initialDate);
+    }
+
+    get finalDate() {
+        return this.#finalDate;
+    }
+
+    set finalDate(finalDate) {
+        this.#finalDate = new Date(finalDate);
+    }
+
+    formatDate(date) {
+        const formatter = new Intl.DateTimeFormat('pt-br', {
+            weekday: 'long',
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric',
+        });
+        return formatter.format(date);
+    }
+
+    getFormattedInitialDate() {
+        return this.formatDate(this.#initialDate);
+    }
+
+    getFormattedFinalDate() {
+        return this.formatDate(this.#finalDate);
+    }
+
+    
+    // Acessando PegaDados da classe pai diretamente
+    get dataConference() {
+        return [this.#content, this.PegaDados, this.#name];  // Usando PegaDados da superclasse
     }
 
     isInitialDateValid() {
-      return this.initialDate.getTime() > Date.now();
+      if(this.initialDate.getTime() < Date.now()) {
+        throw new Error("Data inválida")
+      }
+      console.log("Data válida")
     }
 
+    isFinalDateValid() {
+        if(this.finalDate.getTime() < Date.now()) {
+          throw new Error("Data inválida")
+        }
+        console.log("Data válida")
+      }
+  
     getEventDuration() {
         const durationMs = this.finalDate.getTime() - this.initialDate.getTime();
-
+  
         return this.formatDuration(durationMs);
+    
+    }
+    // verifica se o evento já aconteceu
+  timeUntilEvent() {
+    const now = new Date().getTime();
+    const timeUntilMs = this.initialDate.getTime() - now;
+
+    // Caso o evento já tenha começado
+    if (timeUntilMs <= 0) {
+        return "O evento já começou ou terminou!";
     }
 
-    timeUntilEvent() {
-        const now = new Date().getTime();
-        const timeUntilMs = this.initialDate.getTime() - now;
-
-        // Caso o evento já tenha começado
-        if (timeUntilMs <= 0) {
-            return "O evento já começou ou terminou!";
-        }
-
-        return this.formatDuration(timeUntilMs);
-    }
-
-    formatDuration(durationMs) {
-        const hours = Math.floor((durationMs / (1000 * 60 * 60)) % 24);
-        const days = Math.floor(durationMs / (1000 * 60 * 60 * 24));
-
-        return `${days} dias e ${hours} horas`;
-      }
-      
-    displayEvent() {
-      const eventSection = document.createElement("section");
-      eventSection.classList.add("event-info");
-
-      eventSection.innerHTML = `
-        <h2>${this.title}</h2>
-        <img src="${this.img}" alt="Imagem do evento" id="img-evento" style="max-width: 100%;">
-        <p><strong>Descrição:</strong> ${this.content}</p>
-        <p><strong>Endereço:</strong> ${this.adress}</p>
-        <p><strong>Data inicial:</strong> ${this.initialDate.toLocaleString()}</p>
-        <p><strong>Data final:</strong> ${this.finalDate.toLocaleString()}</p>
-        <p><strong>Duração do evento:</strong> ${this.getEventDuration()}</p>
-        <p>O evento começa em ${this.timeUntilEvent()}</p>
-      `;
-
-      document.body.appendChild(eventSection);
-    }
+    return this.formatDuration(timeUntilMs);
   }
 
-  document.getElementById("register-btn").addEventListener("click", () => {
-    const title = document.getElementById("name-input").value;
-    const img = document.getElementById("url-img").value;
-    const content = document.getElementById("description-text").value;
-    const initialDate = document.getElementById("initial-date-input").value;
-    const finalDate = document.getElementById("final-date-input").value;
-    const adress = `
-      ${document.getElementById("street-input").value},
-      ${document.getElementById("neighborhood-input").value},
-      ${document.getElementById("city-input").value} - 
-      ${document.getElementById("state-input").value},
-      CEP: ${document.getElementById("cep-input").value}
-    `;
+  formatDuration(durationMs) {
+    const hours = Math.floor((durationMs / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(durationMs / (1000 * 60 * 60 * 24));
 
-    const conference = new Conference(title, img, content, adress, initialDate, finalDate);
+    return `${days} dias e ${hours} horas`;
+  }
+}
 
-    conference.displayEvent();
-  });
-  
 //  funcao para verificar o preenchimento de todos os campos do formulario
 function checkFilled() {
     if (
@@ -182,7 +186,7 @@ function checkFilled() {
 
 //  array do banco de dados
 export let bd = [
-    new Conference(1, "Introdução à Libras", "Aprenda os fundamentos da Língua Brasileira de Sinais.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-01", "2024-12-03"),
+    new Conference(1, "Introdução à Libras", "Aprenda os fundamentos da Língua Brasileira de Sinais.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-01-12T14:00:00", "2024-03-12T16:00:00"),
     new Conference(2, "Curso Avançado de Libras", "Aprofunde seus conhecimentos em Libras com este curso avançado.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-05", "2024-12-07"),
     new Conference(3, "Sinais para Profissionais de Saúde", "Aprenda sinais específicos para comunicação em ambientes de saúde.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-10", "2024-12-12"),
     new Conference(4, "Libras no Contexto Escolar", "Estratégias para usar Libras no ambiente educacional.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-15", "2024-12-17"),
