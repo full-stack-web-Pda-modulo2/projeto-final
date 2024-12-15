@@ -24,7 +24,7 @@ const videosDB = [];
 
 videosDB.push(
     ...[ // o spread "quebra" os itens do array, senão o array push guardaria um outro array inteiro ao invés dos valores separadamente
-        new Signal("Alfabeto", "Aprenda os sinais correspondentes às letras do alfabeto.", "ARX0sl6apCw&t=1s"),
+        new Signal("Alfabeto", "Aprenda os sinais correspondentes às letras do alfabeto.", "EZxkymw426U"),
         new Signal("Alfabeto detalhado", "Entenda como executar cada sinal do alfabeto com precisão.", "EaE7R1VBBiA"),
         new Signal("Cumprimentos", "Descubra como se comunicar com saudações básicas em sinais.", "iCG6wTKJkis"),
         
@@ -33,7 +33,7 @@ videosDB.push(
         new Signal("Calendário", "Saiba como sinalizar datas e períodos no calendário.", "OE_DUiCNpUw"),
         
         new Signal("Verbos", "Aprenda os sinais para verbos comuns e suas variações.", "Tb4Byr4gfRI"),
-        new Signal("Adjetivos", "Descubra como descrever características com sinais.", "OoNbG9EEJ4Q&t=12s"),
+        new Signal("Adjetivos", "Descubra como descrever características com sinais.", "M6HCAc26Fss"),
         new Signal("Emoções e sentimentos", "Expresse emoções e sentimentos usando sinais.", "Xn_rDzXuIrw")
     ]
 );

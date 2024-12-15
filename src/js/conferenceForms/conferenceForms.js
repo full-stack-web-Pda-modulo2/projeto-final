@@ -213,6 +213,7 @@ export let bd = [
     new Conference(5, "História e Cultura Surda", "Descubra a história e a cultura da comunidade surda.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-20", "2024-12-22", "17:00", "20:00")
 ];
 
+
 console.log(bd);
 
 //  botão que vai criar um evento ao clicar nele e adicionar no banco de dados
