@@ -30,21 +30,20 @@
 //];
 
 
-import { bd } from "../conferenceForms/conferenceForms";
+import { bd } from "../conferenceForms/conferenceForms.js";
 
 function exibirDetalhesEvento() {
     const params = new URLSearchParams(window.location.search);
     const eventoId = parseInt(params.get("id"), 10);
     const evento = bd.find(e => e.id === eventoId);
+    console.log(evento)
 
     if (evento) {
         document.getElementById("titulo-evento").textContent = evento.name;
-        document.getElementById("descricao-evento").textContent = evento.descricao;
-        document.getElementById("local-evento").textContent = evento.local;
-        document.getElementById("data-evento").textContent = evento.data;
-        document.getElementById("horario-evento").textContent = evento.horario;
-        document.getElementById("imagem-evento").src = evento.imagem;
-        document.getElementById("imagem-evento").alt = evento.titulo;
+        document.getElementById("descricao-evento").textContent = evento.content;
+        document.getElementById("local-evento").textContent = evento.location;
+        document.getElementById("data-evento-inicial").textContent = evento.initialDate;
+        document.getElementById("data-evento-final").textContent = evento.finalDate;
     } else {
         document.getElementById("detalhes-evento").innerHTML = `
             <p>Evento não encontrado. Por favor, volte para a página inicial.</p>
