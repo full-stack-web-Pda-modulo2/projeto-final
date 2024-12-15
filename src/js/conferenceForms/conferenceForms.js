@@ -1,19 +1,3 @@
-import { mostrarErro } from "./modal.js"
-//  pegando os inputs necessários para o preenchimento de dados de eventos 
-const nameConference = document.getElementById("name-input");
-const description = document.getElementById("description-text");
-const cep = document.getElementById("cep-input");
-const street= document.getElementById("street-input");
-const neighborhood = document.getElementById("neighborhood-input");
-const city = document.getElementById("city-input");
-const state = document.getElementById("state-input");
-const registerBtn = document.getElementById("register-btn");
-const datePublic = document.getElementById("date-input");
-const complement = document.getElementById("complement-input");
-
-//  array do banco de dados
-let bd = [];
-
 // Classe adress, classe para o endereco do evento
 class Adress {
     #cep
@@ -99,7 +83,19 @@ class Conference extends Adress {
     }
 }
 
+//  pegando os inputs necessários para o preenchimento do formulário de eventos 
+const nameConference = document.getElementById("name-input");
+const description = document.getElementById("description-text");
+const cep = document.getElementById("cep-input");
+const street= document.getElementById("street-input");
+const neighborhood = document.getElementById("neighborhood-input");
+const city = document.getElementById("city-input");
+const state = document.getElementById("state-input");
+const registerBtn = document.getElementById("register-btn");
+const date = document.getElementById("date-input");
 
+//  array do banco de dados
+let bd = [];
 
 //  funcao para verificar o preenchimento de todos os campos do formulario
 function checkFilled() {
@@ -129,18 +125,29 @@ function verificaCep(cep){
     }
 }
 
-//  botão que vai criar um evento ao clicar nele e adicionar no banco de dados
-
-registerBtn.addEventListener("click", (event)=>{
-    event.preventDefault();
+// função que cria um evento usando a classe conference 
+function createConference(name, content, location, date) {
     try {
         checkFilled();
-        //falta colocar o id 
-        const newConference = new Conference(id ,nameConference.value, description.value, [cep.value, street.value, neighborhood.value, city.value, state.value, complement.value], datePublic.value, "imagem");
-        
-    console.log(newConference);
-    } catch (e) {
-        mostrarErro(e.message);
+    } catch (error) {
+        console.error(error.message)
     }
-    
+    const newConference = new Conference(name, content, location, date);
+    bd.push(newConference);
+    console.log(newConference);
+}
+
+//  botão para adicionar o evento no banco de dados 
+registerBtn.addEventListener("click", (event) =>{
+    event.preventDefault();
+    checkFilled();
+    const newConference = createConference(nameConference.value, description.value,[cep.value, street.value, neighborhood.value, city.value,state.value ]);
+    console.log("Banco de Dados ", bd)
+    nameConference.value = '';
+    description.value = ''
+    cep.value = '';
+    street.value = '';
+    neighborhood.value = '';
+    city.value = '';
+    state.value = '';
 })

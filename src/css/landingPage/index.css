@@ -1,29 +1,428 @@
 @import 'global.css'; /* Importa um arquivo CSS externo chamado global.css */
 
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
 body {
     background: linear-gradient(217deg, var(--neutral-color) 0%, rgb(255, 239, 239) 20%, rgba(255,255,255,1) 81%, var(--neutral-color) 96%);
     /* Define um fundo com um gradiente em três cores distribuídas diagonalmente. */
 }
 
 
+/* Seção Home */
 #home {
-    font-family: 'Kanit-ThinItalic', Arial, sans-serif; /* Fonte personalizada ou Arial como fallback */
-    line-height: 1.6; /* Espaçamento entre linhas */
-    font-family: Kanit-Black; /* Fonte sobrescrevendo a anterior */
-    display: flex; /* Ativa o Flexbox */
-    align-items: center; /* Centraliza os itens verticalmente */
-    justify-content: center; /* Centraliza os itens horizontalmente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+}
+
+#logo {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Seção "Quem Somos Nós?" */
+.cards-tex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ajusta os cards para se distribuírem melhor */
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.card-tex {
+    background-color: var(--background-secondary);
+    padding: 40px;
+    text-align: center;
+    flex: 1 1 calc(33.33% - 20px); /* Ajuste para 3 cards por linha */
+    max-width: 100%; /* Permite que o card ocupe toda a largura possível */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.card-tex h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.card-tex p {
+    font-size: 2rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
 }
 
 
+/* Seção "Por que Pontes em LIBRAS?" */
+section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+section p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+/* Seção Sobre Nós */
+.conteiner-sobre {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.card-content {
+    width: 325px;
+    background-color: var(--background-secondary);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.card-content img {
+    width: 100%;
+    height: auto;
+}
+
+.card-content h3 {
+    font-size: 1.8rem;
+    margin: 20px 0 10px;
+    color: var(--text-primary);
+}
+
+.card-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    padding: 0 20px 20px;
+}
+
+/* Seção Participar */
+#text-sobre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 10vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 30px;
+}
+
+#text-sobre h2 {
+    font-size: 2rem;
+    color: var(--text-primary);
+}
+
+/* Rodapé */
+.footer {
+    background: var(--neutral-color);
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Efeitos de transição */
+.fade-in {
+    animation: fadeIn 1.5s ease-in;
+}
+
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card-tex {
+        flex: 1 1 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .cards-tex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .conteiner-flex {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card-content {
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+    }
+
+    .conteiner-sobre {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    /* Para iPad em modo paisagem ou iPad Pro */
+    body {
+        background: linear-gradient(217deg, var(--neutral-color) 0%, rgb(255, 239, 239) 20%, rgba(255,255,255,1) 81%, var(--neutral-color) 96%);
+        background-repeat: round;
+    }
+
+    .card-tex {
+        flex: 1 1 calc(50% - 20px); /* 2 cards por linha */
+    }
+
+    #home {
+        min-height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: clamp(1.5rem, 2vw, 2.5rem);
+    }
+
+    .card p {
+        font-size: clamp(1rem, 1.2vw, 1.5rem);
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    }
+
+    .footer {
+        width: 100%;
+        height: auto;
+    }
+
+    #logo {
+        width: 70%;
+        height: auto;
+        display: block;
+    }
+
+    .custor-buttom {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card-content p {
+        font-size: 1.8rem;
+    }
+
+    .cards-tex h1 {
+        font-size: 1.2rem;
+    }
+
+    .card-tex p {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+   
+    body {
+        background: linear-gradient(217deg, var(--neutral-color) 0%, rgb(255, 239, 239) 20%, rgba(255,255,255,1) 81%, var(--neutral-color) 96%);
+        background-repeat: round;
+    }
+
+    .card-tex {
+        flex: 1 1 100%; /* 100% para telas pequenas como smartphones */
+    }
+
+    #home {
+        min-height: 80vh;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Ajustado para melhorar o espaçamento */
+    }
+
+    .card {
+        width: 65%; /* Ajusta para 45% da largura da tela */
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    }
+
+    .card p {
+        font-size: clamp(1rem, 1.5vw, 1.5rem);
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: clamp(1rem, 1.5vw, 1.2rem);
+    }
+
+    .footer {
+        width: 100%;
+        height: auto;
+        padding: 12px 0;
+    }
+
+    #logo {
+        width: 70%;
+        height: auto;
+        display: block;
+    }
+
+    .custor-buttom {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card-content p {
+        font-size: 1.5rem;
+    }
+
+    .cards-tex h1 {
+        font-size: 1.2rem;
+    }
+
+    .card-tex p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .card {
+        flex: 1 1 calc(50% - 20px); /* 2 cards por linha */
+    }
+
+    .cards {
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 100%; /* 1 card por linha */
+        max-width: 90%;
+    }
+
+    .cards {
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
+    }
+
+    .card p {
+        font-size: 0.9rem;
+    }
+
+    .conteiner-flex {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 15px;
+    }
+
+    .card h2 {
+        font-size: 1.2rem;
+    }
+
+    .card p {
+        font-size: 0.8rem;
+    }
+}
+
+
+
+/*scroll efeito*/
+html{
+    scroll-behavior: smooth;
+}
+/* Estilo para a barra de rolagem */
+::-webkit-scrollbar {
+    width: 8px; /* Largura da barra */
+    height: 8px; /* Altura da barra */
+}
+
+/* Fundo da barra de rolagem */
+::-webkit-scrollbar-track {
+    background: var(--secondary-color);
+    
+    border-radius: 10px;
+}
+
+/* Estilo do polegar da barra de rolagem */
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 10px;
+}
+
+/* Efeito de hover no polegar */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+
+
+/*misão visão e valor*/
+.conteiner-flex{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
 .conteiner {
-  
-    font-family: 'Nunito_Sans', Arial, sans-serif; /* Fonte personalizada */
+    font-family:  Arial, sans-serif; /* Fonte personalizada */
     text-align: center; /* Centraliza o texto */
     padding: 2.5%; /* Espaçamento interno da seção */
 }
+.conteiner h1{
+    font-size: 2.5rem;
+}
 
-.conteiner, .cards, h1 {
+h1 {
     text-align: center;
     font-size: 24px; /* Tamanho padrão da fonte */
     font-weight: bold; /* Fonte em negrito */
@@ -35,7 +434,6 @@ body {
 .cards {
     display: flex; /* Ativa o Flexbox */
     justify-content: center; /* Centraliza os cartões horizontalmente */
-    gap: 1.87rem; /* Espaçamento entre os cartões */
 }
 
 .card {
@@ -44,12 +442,13 @@ body {
     box-sizing: 5px 5px 5px rgba(0,0,0,0.5); /* Bordas e sombras */
     border-radius: 20px; /* Bordas arredondadas */
     padding: 20px; /* Espaçamento interno */
-    width: 250px; /* Largura fixa */
-    height: 200px; /* Altura fixa */
-    color: var(--text-on-dark); /* Cor do texto */
-    flex-direction: column; /* Organiza elementos em coluna */
+    width: 500px; /* Largura fixa */
+    height: 500px; /* Altura fixa */
+    color: var(--text-primary); /* Cor do texto */
+    flex-direction: column-reverse; /* Organiza elementos em coluna */
     justify-content: space-between; /* Espaça itens dentro da seção */
     text-align: center; /* Centraliza texto */
+    margin: 5px;
 }
 
 .card h2 {
@@ -61,147 +460,52 @@ body {
 .card p {
     font-size: 1.2rem; /* Tamanho da fonte do parágrafo */
     line-height: 1.5; /* Espaçamento entre linhas */
-}
-
-
-.card::after {
-    content: " "; /* Pseudo-elemento vazio */
-    top: 10px; /* Posição do pseudo-elemento */
-    left: 10px;
-    width: 100%; /* Mesmo tamanho do cartão */
-    height: 100%;
-    background-color: rgba(0,0,0,0.1); /* Fundo transparente */
-    border-radius: 20px; /* Bordas arredondadas */
-    z-index: -1; /* Move o elemento para trás */
-}
-
-
-.conteiner-sobre {
-    display: flex; /* Ativa o Flexbox */
-    justify-content: center; /* Centraliza horizontalmente */
-    flex-wrap: wrap; /* Quebra os itens em linhas adicionais, se necessário */
-    margin-top: 100px; /* Margem superior */
-}
-
-.card-content {
-    width: 325px; /* Largura fixa */
-    background-color: var(--background-secondary); /* Cor de fundo */
-    border-radius: 8px; /* Bordas arredondadas */
-    overflow: hidden; /* Oculta o conteúdo que exceder os limites */
-    box-shadow: 0px 2px 4px rgba(0,0,0,0.2); /* Sombra */
-    margin: 20px; /* Espaçamento externo */
-}
-
-.card-content img {
-    width: 100%; /* Imagem se adapta à largura do container */
-    height: auto; /* Mantém as proporções da imagem */
-}
-
-.card-content h3 {
-    font-size: 28px; /* Tamanho do título */
-    margin-bottom: 8px; /* Espaçamento inferior */
-}
-
-.card-content p {
-    color: var(--text-secondary); /* Cor secundária para o texto */
-    font-size: 15px; /* Tamanho menor */
-    line-height: 1.3; /* Espaçamento entre linhas */
+    color: var(--text-primary); /* Cor do texto */
 }
 
 
 
-#text-sobre {
-    display: flex; /* Ativa Flexbox */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    flex-direction: column; /* Organiza o texto verticalmente */
-    height: 10%; /* Altura da seção */
-    background-color: var(--background-secondary); /* Cor de fundo */
-    font-family: Kanit-Regula; /* Fonte personalizada */
-}
-
-
-.custor-buttom {
-    display: flex; /* Ativa o Flexbox */
-    justify-content: center; /* Centraliza os botões */
-    align-items: space-around; /* (Problema: `align-items` não aceita `space-around`, pode ser um erro) */
-}
-
-.button {
-    font-family: Kanit-ThinItalic; /* Fonte personalizada */
-    margin-right: 10px; /* Espaçamento entre os botões */
-    color: var(--text-on-dark); /* Cor do texto */
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); /* Fundo com gradiente */
-    border: none; /* Remove borda padrão */
-    padding: 12px 14px; /* Espaçamento interno */
-    font-size: 16px; /* Tamanho do texto */
-    border-radius: 18px; /* Bordas arredondadas */
-    cursor: pointer; /* Altera o cursor ao passar o mouse */
-    transition: all 0.3s ease; /* Transição suave nos efeitos */
-}
-
-button:hover {
-    background: var(--neutral-color); /* Cor de fundo no hover */
-    transform: scale(1.1); /* Aumenta o botão no hover */
-    box-sizing: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
-}
-.footer{
-    background: var(--neutral-color);
-    text-align: center;
-    padding: 10px 0;
-    font-family: NunitoSans-Italic;
-    font-size: 1.04rem;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-@media screen and (max-width: 768px ) {
-    body{
-        width: 100%;
-    background: linear-gradient(217deg, var(--neutral-color) 0%, rgb(255, 239, 239) 20%, rgba(255,255,255,1) 81%, var(--neutral-color) 96%);
-background-repeat: round;
+/*efeito*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
-    
-    
-    #home{
-        min-height: 100vh;
-        display: flex;
-        flex-wrap: wrap;
+    to {
+        opacity: 1;
     }
+}
 
-     .cards{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
     }
-    .card{
-        width: 100%;
+    to{
+        transform: translateY(0);
+        opacity: 1;
     }
-    h1{
-        font-size: clamp(1.5rem, 2vw, 2.5rem);
+}
+.cards-tex ,.card-tex{
+    animation: slideUp 1s ease-in-out;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+}  
+.conteiner , .card{
+    animation: slideUp 1s ease-in-out;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards
+}
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
     }
-    .card p{
-        font-size: clamp(1rem, 1.2vw, 1.5rem) 
+    to {
+        transform: scale(1);
+        opacity: 1;
     }
-    .button{
-        padding: 10px 20px;
-        font-size: clamp(0.9rem, 1.2vw, 1.1rem)
-    }
-    .footer{
-        width: 100%;
-        height: auto;
-    }
-    #logo{
-        width:70% ;
-        height: auto;
-        display: block;
-    }
-    .custor-buttom{
-         display: flex;
-         justify-content: space-between;
-    }
-    .card-content p {
-        font-size: 1.8rem;
-    }
+}
+
+#logo {
+    animation: zoomIn 1.2s ease-out;
 }

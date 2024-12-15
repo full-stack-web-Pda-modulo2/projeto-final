@@ -1,20 +1,18 @@
-// Seleciona os elementos do DOM
-const menu = document.querySelector('.nav-list');
-const overlay = document.querySelector('.overlay');
-const mobileMenuButton = document.querySelector('.mobile-menu');
+const navbar = document.querySelector('.navbar');
+const toggleButton = document.querySelector(".menu-toggle")
+const navLinks = document.querySelector('.nav-links')
 
-// Função para alternar o menu (abrir/fechar)
-const toggleMenu = () => {
-    const isActive = menu.classList.toggle('active');
-    overlay.classList.toggle('active', isActive);
-};
+//Alterna o menu no mobile
+toggleButton.addEventListener('click',()=>{
+        navLinks.classList.toggle('show')
+})
 
-// Função para fechar o menu
-const closeMenu = () => {
-    menu.classList.remove('active');
-    overlay.classList.remove('active');
-};
 
-// Adiciona eventos de clique
-mobileMenuButton.addEventListener('click', toggleMenu); // Abre/fecha o menu
-overlay.addEventListener('click', closeMenu); // Fecha o menu ao clicar no overlay
+
+window.addEventListener('scroll',()=>{
+        if(window.scrollY > 50){
+                navbar.classList.add('scrolled');
+        }else{
+                navbar.classList.remove('scrolled')
+        }
+})
