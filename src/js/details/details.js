@@ -6,7 +6,7 @@ const eventos = [
         local: "Centro Cultural de Libras",
         data: "20/01/2025",
         horario: "14:00",
-        imagem: "assets/images/workshop.jpg"
+        
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ const eventos = [
         local: "Auditório Municipal",
         data: "25/01/2025",
         horario: "10:00",
-        imagem: "assets/images/palestra.jpg"
+        
     },
     {
         id: 3,
@@ -24,7 +24,7 @@ const eventos = [
         local: "Auditório Municipal",
         data: "10/02/2025",
         horario: "13:00",
-        imagem: "assets/images/palestra.jpg"
+        
     }
 
 ];
@@ -40,7 +40,6 @@ function exibirDetalhesEvento() {
         document.getElementById("local-evento").textContent = evento.local;
         document.getElementById("data-evento").textContent = evento.data;
         document.getElementById("horario-evento").textContent = evento.horario;
-        document.getElementById("imagem-evento").src = evento.imagem;
         document.getElementById("imagem-evento").alt = evento.titulo;
     } else {
         document.getElementById("detalhes-evento").innerHTML = `
