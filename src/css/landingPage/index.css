@@ -1,4 +1,4 @@
-@import 'global.css'; /* Importa um arquivo CSS externo chamado global.css */
+@import url(./../../../global.css); /* Importa um arquivo CSS externo chamado global.css */
 
 * {
     box-sizing: border-box;

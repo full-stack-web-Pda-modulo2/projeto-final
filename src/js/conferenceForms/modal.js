@@ -1,11 +1,11 @@
 //função que faz um callback que dispara os erro durante o preenchemento do formulario
-export function mostrarErro(mensagem){
+export function showErro(message){
     const popOut = document.getElementById("errorPopOut");
     const errorMessage = document.getElementById('errorMessage');
     const progressBar =document.querySelector(".progress-bar");
 
-    //Define a mensagem e exibe o pop-out
-    errorMessage.textContent= mensagem;
+    //Define a message e exibe o pop-out
+    errorMessage.textContent= message;
     popOut.classList.remove("hidden");
     popOut.classList.add("show");
 

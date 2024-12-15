@@ -1,4 +1,4 @@
-@import 'global.css';
+@import url(./../../../global.css);
 /*importando as var do arquivo global*/
 header{
     font-family: Arial, Helvetica, sans-serif;
