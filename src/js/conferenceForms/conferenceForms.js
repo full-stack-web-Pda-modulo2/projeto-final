@@ -86,8 +86,8 @@ export class Conference {
     }
 
     get initialDate() {
-        return this.#initialDate;
-    }
+            return this.#initialDate;
+        }
 
     set initialDate(initialDate) {
         this.#initialDate = new Date(initialDate);
@@ -101,6 +101,25 @@ export class Conference {
         this.#finalDate = new Date(finalDate);
     }
 
+    formatDate(date) {
+        const formatter = new Intl.DateTimeFormat('pt-br', {
+            weekday: 'long',
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric',
+        });
+        return formatter.format(date);
+    }
+
+    getFormattedInitialDate() {
+        return this.formatDate(this.#initialDate);
+    }
+
+    getFormattedFinalDate() {
+        return this.formatDate(this.#finalDate);
+    }
+
+    
     // Acessando PegaDados da classe pai diretamente
     get dataConference() {
         return [this.#content, this.PegaDados, this.#name];  // Usando PegaDados da superclasse
@@ -145,26 +164,6 @@ export class Conference {
 
     return `${days} dias e ${hours} horas`;
   }
-    
-
-  displayEvent() {
-    const eventSection = document.createElement("section");
-    eventSection.classList.add("event-info");
-
-    eventSection.innerHTML = `
-      <h2>${this.title}</h2>
-      <img src="${this.img}" alt="Imagem do evento" id="img-evento" style="max-width: 100%;">
-      <p><strong>Descrição:</strong> ${this.content}</p>
-      <p><strong>Endereço:</strong> ${this.adress}</p>
-      <p><strong>Data inicial:</strong> ${this.initialDate.toLocaleString()}</p>
-      <p><strong>Data final:</strong> ${this.finalDate.toLocaleString()}</p>
-      <p><strong>Duração do evento:</strong> ${this.getEventDuration()}</p>
-      <p>O evento começa em ${this.timeUntilEvent()}</p>
-    `;
-
-    document.body.appendChild(eventSection);
-
-  }
 }
 
 //  funcao para verificar o preenchimento de todos os campos do formulario
@@ -187,7 +186,7 @@ function checkFilled() {
 
 //  array do banco de dados
 export let bd = [
-    new Conference(1, "Introdução à Libras", "Aprenda os fundamentos da Língua Brasileira de Sinais.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-01", "2024-12-03"),
+    new Conference(1, "Introdução à Libras", "Aprenda os fundamentos da Língua Brasileira de Sinais.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-01-12T14:00:00", "2024-03-12T16:00:00"),
     new Conference(2, "Curso Avançado de Libras", "Aprofunde seus conhecimentos em Libras com este curso avançado.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-05", "2024-12-07"),
     new Conference(3, "Sinais para Profissionais de Saúde", "Aprenda sinais específicos para comunicação em ambientes de saúde.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-10", "2024-12-12"),
     new Conference(4, "Libras no Contexto Escolar", "Estratégias para usar Libras no ambiente educacional.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-15", "2024-12-17"),
