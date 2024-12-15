@@ -28,32 +28,4 @@
     --text-on-dark: #FFFFFF; /* Texto sobre fundos escuros */
   }
   
-/*fontes internas */
-@font-face {
-    font-family:Kanit-Black ;
-    src: url(assets/font/Kanit/Kanit-Black.ttf);
-}
-
-@font-face {
-    font-family:NunitoSans-Italic ;
-    src: url(assets/font/Nunito_Sans/NunitoSans-Italic-VariableFont_YTLC\,opsz\,wdth\,wght.ttf);
-}
-
-@font-face {
-    font-family:Kanit-ThinItalic ;
-    src: url(assets/font/Kanit/Kanit-ThinItalic.ttf);
-}
- 
-@font-face {
-    font-family: Kanit-Regula ;
-    src: url(assets/font/Kanit/Kanit-Regular.ttf);
-}
-@font-face {
-    font-family:Nunito_Sans ;
-    src: url(assets/font/Nunito_Sans/OFL.txt);
-}
-@font-face {
-    font-family:NunitoSans-VariableFont;
-    src: url(assets/font/Nunito_Sans/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf);
-}
 
