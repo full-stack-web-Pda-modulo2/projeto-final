@@ -1,62 +1,52 @@
-// js/detalhes.js
-
-// Dados simulados de eventos
 const eventos = [
-    { 
-        id: 1, 
-        titulo: "Introdução à Libras", 
-        descricao: "Workshop introdutório sobre a Língua Brasileira de Sinais para iniciantes.", 
-        data: "2024-12-10", 
-        local: "Online", 
-        publico: "Para ouvintes e surdos, sem pré-requisitos." 
+    {
+        id: 1,
+        titulo: "Workshop de Libras",
+        descricao: "Aprenda o básico da Língua Brasileira de Sinais neste workshop interativo.",
+        local: "Centro Cultural de Libras",
+        data: "20/01/2025",
+        horario: "14:00",
+        imagem: "assets/images/workshop.jpg"
     },
-    { 
-        id: 2, 
-        titulo: "Inclusão no Ambiente de Trabalho", 
-        descricao: "Palestra sobre a inclusão de surdos no ambiente corporativo, com tradução simultânea em Libras.", 
-        data: "2024-12-15", 
-        local: "São Paulo", 
-        publico: "Profissionais de RH e gestores." 
+    {
+        id: 2,
+        titulo: "Palestra sobre Inclusão",
+        descricao: "Uma conversa sobre os desafios e avanços na inclusão de pessoas surdas.",
+        local: "Auditório Municipal",
+        data: "25/01/2025",
+        horario: "10:00",
+        imagem: "assets/images/palestra.jpg"
     },
-    { 
-        id: 3, 
-        titulo: "Encontro Cultural de Libras", 
-        descricao: "Evento para celebração e promoção da cultura surda, com apresentações artísticas.", 
-        data: "2024-12-20", 
-        local: "Rio de Janeiro", 
-        publico: "Aberto ao público geral." 
-    },
+    {
+        id: 3,
+        titulo: "Curso Intensivo de Libras",
+        descricao: "Curso intensivo para desenvolver habilidades práticas em Libras.",
+        local: "Auditório Municipal",
+        data: "10/02/2025",
+        horario: "13:00",
+        imagem: "assets/images/palestra.jpg"
+    }
+
 ];
 
-// Função para capturar parâmetros da URL
-function getQueryParam(param) {
+function exibirDetalhesEvento() {
     const params = new URLSearchParams(window.location.search);
-    return params.get(param);
+    const eventoId = parseInt(params.get("id"), 10);
+    const evento = eventos.find(e => e.id === eventoId);
+
+    if (evento) {
+        document.getElementById("titulo-evento").textContent = evento.titulo;
+        document.getElementById("descricao-evento").textContent = evento.descricao;
+        document.getElementById("local-evento").textContent = evento.local;
+        document.getElementById("data-evento").textContent = evento.data;
+        document.getElementById("horario-evento").textContent = evento.horario;
+        document.getElementById("imagem-evento").src = evento.imagem;
+        document.getElementById("imagem-evento").alt = evento.titulo;
+    } else {
+        document.getElementById("detalhes-evento").innerHTML = `
+            <p>Evento não encontrado. Por favor, volte para a página inicial.</p>
+        `;
+    }
 }
 
-// Pega o ID do evento da URL
-const eventoId = getQueryParam("id");
-
-// Busca o evento no array
-const evento = eventos.find(e => e.id === parseInt(eventoId, 10));
-
-// Seleciona o elemento onde os detalhes serão exibidos
-const detalhesEventoDiv = document.getElementById("detalhes-evento");
-
-// Exibe os detalhes do evento ou uma mensagem de erro
-if (evento) {
-    detalhesEventoDiv.innerHTML = `
-        <h1>${evento.titulo}</h1>
-        <p><strong>Descrição:</strong> ${evento.descricao}</p>
-        <p><strong>Data:</strong> ${new Date(evento.data).toLocaleDateString()}</p>
-        <p><strong>Local:</strong> ${evento.local}</p>
-        <p><strong>Público:</strong> ${evento.publico}</p>
-        <a href="eventos.html" class="btn">Voltar</a>
-    `;
-} else {
-    detalhesEventoDiv.innerHTML = `
-        <h1>Evento não encontrado</h1>
-        <p>O evento que você está procurando não existe ou foi removido.</p>
-        <a href="eventos.html" class="btn">Voltar</a>
-    `;
-}
+document.addEventListener("DOMContentLoaded", exibirDetalhesEvento);
