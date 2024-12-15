@@ -14,6 +14,7 @@ const pequisarCep = async() =>{
         let cep= document.getElementById("cep-input").value;
         cep = cep.replace(/\D/g, '');
         const url = `http://viacep.com.br/ws/${cep}/json/`;
+
         if(validCEP(cep)){
             const data = await fetch(url);
             const adress = await data.json();

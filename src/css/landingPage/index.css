@@ -1,4 +1,4 @@
-@import 'global.css'; /* Importa um arquivo CSS externo chamado global.css */
+@import url(./../../../global.css); /* Importa um arquivo CSS externo chamado global.css */
 
 body {
     background: linear-gradient(217deg, var(--neutral-color) 0%, rgb(255, 239, 239) 20%, rgba(255,255,255,1) 81%, var(--neutral-color) 96%);
@@ -7,23 +7,55 @@ body {
 
 
 #home {
-    font-family: 'Kanit-ThinItalic', Arial, sans-serif; /* Fonte personalizada ou Arial como fallback */
+    font-family:  Arial, sans-serif; /* Fonte personalizada ou Arial como fallback */
     line-height: 1.6; /* Espaçamento entre linhas */
-    font-family: Kanit-Black; /* Fonte sobrescrevendo a anterior */
     display: flex; /* Ativa o Flexbox */
     align-items: center; /* Centraliza os itens verticalmente */
     justify-content: center; /* Centraliza os itens horizontalmente */
 }
+.card-tex h1{
+    font-size: 2.5rem;
+}
+.cards-tex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 72vh;
+}
+.card-tex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+    padding: 60px;
+    font-family:  Arial, sans-serif;
+    line-height: 1.5;
+    font-size: 2.1rem;
+    margin-bottom: 100px;
+    text-align: center;
+    height: 500px;
+    width: 65%;
+    padding-top: 70px;
 
 
+}
+
+.conteiner-flex{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
 .conteiner {
-  
-    font-family: 'Nunito_Sans', Arial, sans-serif; /* Fonte personalizada */
+    font-family:  Arial, sans-serif; /* Fonte personalizada */
     text-align: center; /* Centraliza o texto */
     padding: 2.5%; /* Espaçamento interno da seção */
 }
+.conteiner h1{
+    font-size: 2.5rem;
+}
 
-.conteiner, .cards, h1 {
+h1 {
     text-align: center;
     font-size: 24px; /* Tamanho padrão da fonte */
     font-weight: bold; /* Fonte em negrito */
@@ -35,7 +67,6 @@ body {
 .cards {
     display: flex; /* Ativa o Flexbox */
     justify-content: center; /* Centraliza os cartões horizontalmente */
-    gap: 1.87rem; /* Espaçamento entre os cartões */
 }
 
 .card {
@@ -44,12 +75,13 @@ body {
     box-sizing: 5px 5px 5px rgba(0,0,0,0.5); /* Bordas e sombras */
     border-radius: 20px; /* Bordas arredondadas */
     padding: 20px; /* Espaçamento interno */
-    width: 250px; /* Largura fixa */
-    height: 200px; /* Altura fixa */
-    color: var(--text-on-dark); /* Cor do texto */
-    flex-direction: column; /* Organiza elementos em coluna */
+    width: 500px; /* Largura fixa */
+    height: 500px; /* Altura fixa */
+    color: var(--text-primary); /* Cor do texto */
+    flex-direction: column-reverse; /* Organiza elementos em coluna */
     justify-content: space-between; /* Espaça itens dentro da seção */
     text-align: center; /* Centraliza texto */
+    margin: 5px;
 }
 
 .card h2 {
@@ -64,16 +96,6 @@ body {
 }
 
 
-.card::after {
-    content: " "; /* Pseudo-elemento vazio */
-    top: 10px; /* Posição do pseudo-elemento */
-    left: 10px;
-    width: 100%; /* Mesmo tamanho do cartão */
-    height: 100%;
-    background-color: rgba(0,0,0,0.1); /* Fundo transparente */
-    border-radius: 20px; /* Bordas arredondadas */
-    z-index: -1; /* Move o elemento para trás */
-}
 
 
 .conteiner-sobre {
@@ -116,8 +138,7 @@ body {
     align-items: center; /* Centraliza verticalmente */
     flex-direction: column; /* Organiza o texto verticalmente */
     height: 10%; /* Altura da seção */
-    background-color: var(--background-secondary); /* Cor de fundo */
-    font-family: Kanit-Regula; /* Fonte personalizada */
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Fonte personalizada */
 }
 
 
@@ -125,26 +146,12 @@ body {
     display: flex; /* Ativa o Flexbox */
     justify-content: center; /* Centraliza os botões */
     align-items: space-around; /* (Problema: `align-items` não aceita `space-around`, pode ser um erro) */
+    padding-left: 2rem;
 }
 
-.button {
-    font-family: Kanit-ThinItalic; /* Fonte personalizada */
-    margin-right: 10px; /* Espaçamento entre os botões */
-    color: var(--text-on-dark); /* Cor do texto */
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); /* Fundo com gradiente */
-    border: none; /* Remove borda padrão */
-    padding: 12px 14px; /* Espaçamento interno */
-    font-size: 16px; /* Tamanho do texto */
-    border-radius: 18px; /* Bordas arredondadas */
-    cursor: pointer; /* Altera o cursor ao passar o mouse */
-    transition: all 0.3s ease; /* Transição suave nos efeitos */
-}
 
-button:hover {
-    background: var(--neutral-color); /* Cor de fundo no hover */
-    transform: scale(1.1); /* Aumenta o botão no hover */
-    box-sizing: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
-}
+
+
 .footer{
     background: var(--neutral-color);
     text-align: center;
@@ -204,4 +211,11 @@ background-repeat: round;
     .card-content p {
         font-size: 1.8rem;
     }
+    .cards-tex h1{
+        font-size: 1.2rem;
+    }
+    .card-tex p {
+        font-size: 0.8rem;
+    }
 }
+

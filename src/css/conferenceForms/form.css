@@ -21,8 +21,8 @@
     top: 2rem;
     right: 2rem;
     padding: 1.5rem;
-    background-color: var( --primary-color);
-    color: var(--text-secondary);
+    background-color: #797979cb;
+    color: var(--background-color);
     border-radius: 0.5rem;
     box-shadow: 0 0.4rem 0.8rem rgba(0,0,0,0.2);
     font-size: 1.6rem;
@@ -38,7 +38,7 @@
     bottom: 0;
     left: 0;
     height: 0.5rem;
-    background-color: var( --text-primary);
+    background-color: var(--accent-color);
     width: 100%;
     transform-origin: left;
     animation: progress 3s linear forwards;
