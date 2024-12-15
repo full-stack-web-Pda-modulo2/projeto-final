@@ -5,24 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Seu Nome">
     <title>Eventos</title>
-    <link rel="stylesheet" href="/global.css">
-    <link rel="stylesheet" href="/src/css/details/eventos.css">
+    <link rel="stylesheet" href="../css/landingPage/navbar.css">
+    <link rel="stylesheet" href="../css/details/eventos.css">
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">
-                <img src="/src/assets/IMG/Pontes_em_Libras_Transparent.png" alt="Logo Pontes em Libras">
-            </div>
-            <div class="mobile-menu">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-            <div class="overlay">
-                <ul class="nav-list">
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="eventos.html">Eventos</a></li>
+        <nav class="navbar"> 
+
+            <div class="navbar-container">
+                <a href="#" class="logo">Pontes em Libras</a>
+                <button class="menu-toggle" aria-label="Abrir Menu">&#9776;</button>
+                <ul class="nav-links">
+                    <li><a href="/projeto-final/index.html">Home</a></li>
+                    <li><a href="#">Sinais</a></li>
+                    <li class="nav-button"><a href="../html/conferenceForms.html" class="button">Cadastre-se</a></li>
                 </ul>
             </div>
         </nav>
@@ -39,5 +35,6 @@
         <p>&copy; 2024 Pontes em Libras. Todos os direitos reservados.</p>
     </footer>
     <script src="./../js/details/eventos.js" type="module"></script>
+    <script type="module" src="../js/landingpage/mobile-navbar.js"></script>
 </body>
 </html>

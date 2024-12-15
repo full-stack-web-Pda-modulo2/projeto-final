@@ -196,6 +196,32 @@ export let bd = [
 
 console.log(bd);
 
+// função que cria um evento usando a classe conference 
+function createConference(name, content, location, date) {
+    try {
+        checkFilled();
+    } catch (error) {
+        console.error(error.message)
+    }
+    const newConference = new Conference(name, content, location, date);
+    bd.push(newConference);
+    console.log(newConference);
+}
+
+//  botão para adicionar o evento no banco de dados 
+registerBtn.addEventListener("click", (event) =>{
+    event.preventDefault();
+    checkFilled();
+    const newConference = createConference(nameConference.value, description.value,[cep.value, street.value, neighborhood.value, city.value,state.value ]);
+    console.log("Banco de Dados ", bd)
+    nameConference.value = '';
+    description.value = ''
+    cep.value = '';
+    street.value = '';
+    neighborhood.value = '';
+    city.value = '';
+    state.value = '';
+})
 //  botão que vai criar um evento ao clicar nele e adicionar no banco de dados
 
 // document.addEventListener("DOMContentLoaded", () => {

@@ -80,6 +80,7 @@ section p {
     flex-wrap: wrap;
     gap: 30px;
     margin-top: 60px;
+    animation: zoomIn 1.2s ease-out;
 }
 
 .card-content {
@@ -118,6 +119,7 @@ section p {
     height: 10vh;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 30px;
+    animation: zoomIn 1.2s ease-out;
 }
 
 #text-sobre h2 {
@@ -142,9 +144,7 @@ section p {
 }
 
 /* Efeitos de transição */
-.fade-in {
-    animation: fadeIn 1.5s ease-in;
-}
+
 
 
 
@@ -375,37 +375,6 @@ section p {
 }
 
 
-
-/*scroll efeito*/
-html{
-    scroll-behavior: smooth;
-}
-/* Estilo para a barra de rolagem */
-::-webkit-scrollbar {
-    width: 8px; /* Largura da barra */
-    height: 8px; /* Altura da barra */
-}
-
-/* Fundo da barra de rolagem */
-::-webkit-scrollbar-track {
-    background: var(--secondary-color);
-    
-    border-radius: 10px;
-}
-
-/* Estilo do polegar da barra de rolagem */
-::-webkit-scrollbar-thumb {
-    background: var(--accent-color);
-    border-radius: 10px;
-}
-
-/* Efeito de hover no polegar */
-::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-color);
-}
-
-
-
 /*misão visão e valor*/
 .conteiner-flex{
     display: flex;
@@ -475,25 +444,12 @@ h1 {
     }
 }
 
-@keyframes slideUp {
-    from {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-    to{
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
+
 .cards-tex ,.card-tex{
-    animation: slideUp 1s ease-in-out;
-    animation-delay: 0.3s;
-    animation-fill-mode: forwards;
+    animation: zoomIn 1.2s ease-out;
 }  
 .conteiner , .card{
-    animation: slideUp 1s ease-in-out;
-    animation-delay: 0.3s;
-    animation-fill-mode: forwards
+    animation: zoomIn 1.2s ease-out;
 }
 @keyframes zoomIn {
     from {

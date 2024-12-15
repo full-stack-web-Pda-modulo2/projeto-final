@@ -29,6 +29,30 @@
     --text-on-dark: #FFFFFF; /* Texto sobre fundos escuros */
   }
   
+/*scroll efeito*/
+html{
+  scroll-behavior: smooth;
+}
+/* Estilo para a barra de rolagem */
+::-webkit-scrollbar {
+  width: 8px; /* Largura da barra */
+  height: 8px; /* Altura da barra */
+}
 
+/* Fundo da barra de rolagem */
+::-webkit-scrollbar-track {
+  background: var(--secondary-color);
+  
+  border-radius: 10px;
+}
 
+/* Estilo do polegar da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 10px;
+}
 
+/* Efeito de hover no polegar */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
