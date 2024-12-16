@@ -1,12 +1,10 @@
 import { bd } from "../conferenceForms/conferenceForms.js";
 // import { formatDate } from "./eventos.js";
 
-export function exibirDetalhesEvento() {
-    const params = new URLSearchParams(window.location.search);
-    const eventoId = parseInt(params.get("id"), 10);
-    const evento = bd.find(e => e.id === eventoId);
+export function exibirDetalhesEvento(id) {
+    const evento = bd[id]
     console.log(evento);
-
+    
     
     if (evento) {
         document.getElementById("titulo-evento").textContent = evento.name;

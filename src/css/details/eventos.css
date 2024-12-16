@@ -1,8 +1,7 @@
 /* Importando variáveis globais */
 @import url(../../../global.css);
 @import url(./../conferenceForms/form.css);
-
-/* @import url(./details.css); */
+@import url(./details.css);
 
 
 body {
