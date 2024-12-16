@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/details/eventos.css">
 </head>
 <body>
-    <header>
+    <!-- <header>
         <nav class="navbar"> 
             <div class="navbar-container">
                 <a href="#" class="logo">Pontes em Libras</a>
@@ -21,51 +21,52 @@
                 </ul>
             </div>
         </nav>
-    </header>
+    </header> -->
     <main>
         <section id="eventos-lista" class="fade-in">
             <h1 class="titulo">Eventos Disponíveis</h1>
             <div id="eventos-container">
             </div>
         </section>
-        <form>
-            <div>
-                <div>
-                    <label for="name-input" >Nome: </label>
-                    <input type="text" placeholder="name" id="name-input">
-                    <label for="cep-input">CEP:</label>
-                    <input type="number" placeholder="cep" id="cep-input">
-                    <label for="street-input">Rua:</label>
-                    <input type="text" id="street-input" placeholder="Rua">
-                    <label for="neighborhood-input">Bairro:</label>
-                    <input type="text" id="neighborhood-input" placeholder="Bairro">
-                    <label for="city-input">Cidade:</label>
-                    <input type="text" id="city-input" placeholder="Cidade">
-                    <label for="state-input">Estado:</label>
-                    <input type="text" id="state-input" placeholder="Estado">
-                    <label for="complement-input">Complemento:</label>
-                    <input type="text" id="complement-input" placeholder="Complemento">
-                </div>
-              
+        <section class="section-form">
+            <form>
+            
                     <div>
-                        <label for="date-input-fist">data-incial:</label>
-                        <input type="date" id="date-input-fist">
-                        <label for="date-input-second">data-final:</label>
-                        <input type="date" id="date-input-second">
-                        <label for="time-input-open">horário de abertura:</label>
-                        <input type="time" id="time-input-open">
-                        <label for="time-input-close">horário de fechamento:</label>
-                        <input type="time" id="time-input-close">
+                        <label for="name-input" >Nome: </label>
+                        <input type="text" placeholder="name" id="name-input">
+                        <label for="cep-input">CEP:</label>
+                        <input type="number" placeholder="cep" id="cep-input">
+                        <label for="street-input">Rua:</label>
+                        <input type="text" id="street-input" placeholder="Rua">
+                        <label for="neighborhood-input">Bairro:</label>
+                        <input type="text" id="neighborhood-input" placeholder="Bairro">
+                        <label for="city-input">Cidade:</label>
+                        <input type="text" id="city-input" placeholder="Cidade">
+                        <label for="state-input">Estado:</label>
+                        <input type="text" id="state-input" placeholder="Estado">
+                        <label for="complement-input">Complemento:</label>
+                        <input type="text" id="complement-input" placeholder="Complemento">
                     </div>
-                <div>
-                    <label for="description-text">Descrição: </label>
-                    <textarea cols="100" rows="5" placeholder="coloque a descrição do evento aqui" id="description-text"></textarea>
+            
+                        <div>
+                            <label for="date-input-fist">data-incial:</label>
+                            <input type="date" id="date-input-fist">
+                            <label for="date-input-second">data-final:</label>
+                            <input type="date" id="date-input-second">
+                            <label for="time-input-open">horário de abertura:</label>
+                            <input type="time" id="time-input-open">
+                            <label for="time-input-close">horário de fechamento:</label>
+                            <input type="time" id="time-input-close">
+                        </div>
+                    <div>
+                        <label for="description-text">Descrição: </label>
+                        <textarea cols="100" rows="5" placeholder="coloque a descrição do evento aqui" id="description-text"></textarea>
+                    </div>
                 </div>
-
-            </div>
-            <div class="fatherButton"><button type= "button" id="register-btn">Cadastra</button></div>
-        </form>
-    </div>
+                <div class="fatherButton"><button type= "button" id="register-btn">Cadastra</button></div>
+            </form>
+        </section>
+  
     <section id="errorPopOut" class="pop-out hidden">
         <span id="errorMessage"></span>
         <div class="progress-bar"></div>

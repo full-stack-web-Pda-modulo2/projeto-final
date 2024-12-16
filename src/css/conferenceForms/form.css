@@ -6,18 +6,11 @@
  }
  
  /* Corpo da Página */
- body {
-     background: linear-gradient(to bottom, teal, rgb(137, 237, 237));
-     color: #fff;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     min-height: 100vh;
-     padding: 20px;
- }
- 
+
  /* Container Principal */
  form {
+    /* display: flex;
+    justify-content: center; */
     display: none;
      background-color: rgba(255, 255, 255, 0.9);
      border-radius: 10px;
@@ -88,7 +81,7 @@
  
  
  /* Botão de Cadastro */
- button {
+ #register-btn {
      background-color: #03dcf8ea;
      color: #fff;
      border: none;
@@ -100,7 +93,7 @@
      transition: background-color 0.9s ease,color 0.9s ease, transform 0.3s ease;
  }
  
- button:hover {
+ #register-btn:hover {
      background-color: #00e1ff8e;
      color: #000;
  }
