@@ -104,6 +104,15 @@ body {
     display: flex;
 }
 
+.show-detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: var(--background-secondary);
+    padding: 20px;
+}
+
 .hidden {
     display: none;
 }

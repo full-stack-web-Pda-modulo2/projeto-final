@@ -1,74 +1,11 @@
-// import {bd} from "./../conferenceForms/conferenceForms.js";
-// import {exibirDetalhesEvento} from "./../details/details.js"
-// const changeForm = document.getElementById("change-form");
-// export const form = document.querySelector("form");
-// export const eventos = document.getElementById("eventos-lista");
-
-// changeForm.addEventListener("click", (evento) => {
-//     evento.preventDefault();
-//     form.classList.add("show")
-//     eventos.classList.add("hidden")
-// });
-
-// // document.getElementById("titulo-evento").textContent = evento.name;
-// // document.getElementById("descricao-evento").textContent = evento.content;
-// // document.getElementById("rua-evento").textContent = evento.location[1];
-// // document.getElementById("bairro-evento").textContent = evento.location[2];
-// // document.getElementById("cidade-evento").textContent = evento.location[3];
-// // document.getElementById("estado-evento").textContent = evento.location[4];
-// // document.getElementById("complemento-evento").textContent = evento.location[5];
-// // document.getElementById("data-evento-inicial").textContent = evento.formatDate(evento.initialDate);
-// // document.getElementById("data-evento-final").textContent = evento.formatDate(evento.finalDate);
-// // document.getElementById("duracao-evento").textContent = evento.getEventDuration();
-// // document.getElementById("abertura-evento").textContent = evento.timeOpen;
-// // document.getElementById("fechamento-evento").textContent = evento.timeClose;
-
-// const eventSelect = document.querySelector(".event-select");
-
-// if(eventSelect) {
-//     eventSelect.addEventListener("click", (e)=>{
-//         e.preventDefault();
-//         console.log(e)
-//         const selectedElement = e.target;
-//         const id = selectedElement.getAttribute("id");
-//         exibirDetalhesEvento(id);
-//         eventos.classList.add("hidden");
-//     });
-// }
-
-// export function carregarEvento(id, name, date,timeOpen, timeClose, city) {
-//     if(name){
-//         const container = document.getElementById("eventos-container");
-//         const card = document.createElement("div");
-//         card.classList.add("evento-card");
-//         console.log(name);
-//         card.innerHTML = `
-//             <div class="card-content">
-//                 <h2>${name}</h2>
-//                 <p>${date}</p>
-//                 <p>${timeOpen} - ${timeClose}</p>
-//                 <p>${city}</p>
-//             <button id="${id}" class="event-select">Ver Detalhes</button>
-//             </div>
-//         `;
-//         container.appendChild(card);
-//     }
-// }
-
-// for (let conference of bd) {
-//     carregarEvento(conference.id,conference.name, conference.formatDate(conference.initialDate),conference.timeOpen,conference.timeClose, conference.location[3]);
-// }
-
-// // document.addEventListener("DOMContentLoaded", carregarEvento());
-
-
 import { bd } from "./../conferenceForms/conferenceForms.js";
 import { exibirDetalhesEvento } from "./../details/details.js";
 
 const changeForm = document.getElementById("change-form");
 export const form = document.querySelector("form");
 export const eventos = document.getElementById("eventos-lista");
-// const details = document.getElementsById("detalhes-evento");
+const details = document.getElementById("detalhes-evento");
+
 
 // Alternar formulário de edição e lista de eventos
 changeForm.addEventListener("click", (evento) => {
@@ -77,6 +14,12 @@ changeForm.addEventListener("click", (evento) => {
     if (eventos && eventos.classList.contains("show")) {
         eventos.classList.remove("show");
     } 
+
+    if(details && details.classList.contains("show")){
+        details.classList.remove("show");
+    }
+    
+    details.classList.add("hidden");
     eventos.classList.add("hidden");
 });
 
@@ -117,7 +60,7 @@ export function carregarEvento(id, name, date, timeOpen, timeClose, city) {
                 <p>${date}</p>
                 <p>${timeOpen} - ${timeClose}</p>
                 <p>${city}</p>
-                <button id="ver-Detalhe${id}" class="event-select">Ver Detalhes</button>
+                <button id="${id}" class="event-select">Ver Detalhes</button>
             </div>
         `;
         container.appendChild(card);
@@ -127,13 +70,13 @@ export function carregarEvento(id, name, date, timeOpen, timeClose, city) {
 // Adicionar eventos de clique após o DOM carregar
 
 
-function selectConference(buttonId) {
-    // Exibir os detalhes do evento com o id
-    
-    exibirDetalhesEvento(buttonId);
+function selectConference(button) {
     
     if (eventos && eventos.classList.contains("show")) {
         eventos.classList.remove("show");
     } 
+    details.classList.remove("hidden");
+    details.classList.add("show");
     eventos.classList.add("hidden");
+    exibirDetalhesEvento(bd[button]);
 }
