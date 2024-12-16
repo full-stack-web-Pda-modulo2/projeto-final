@@ -55,9 +55,20 @@
             <li>Ao contrário de línguas orais, LIBRAS depende do canal visual, sendo compreendida por meio de gestos e expressões.</li>
             <li>As expressões faciais e corporais são essenciais, pois complementam o significado dos sinais.</li>
         </ul>
-    <div id="display-videos">
-        
+    <div id="display-videos"> 
     </div>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+          <div class="vw-plugin-top-wrapper"></div>
+        </div>
+      </div>
+      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+      <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+      </script>
+    <script src="./src/js/landingpage/mobile-navbar.js"></script>
     <script src="../js/sinaisVideos/videos.js"></script>
 </body>
 </html>
