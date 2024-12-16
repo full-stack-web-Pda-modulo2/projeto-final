@@ -15,15 +15,13 @@ class Signal {
                 <iframe class="videos" src="https://www.youtube.com/embed/${this.video}"></iframe>
             </div>
         `;
-    
         div.insertAdjacentHTML("beforeend", signalHTML);
     }
 }
 
 const videosDB = []; 
-
 videosDB.push(
-    ...[ // o spread "quebra" os itens do array, senão o array push guardaria um outro array inteiro ao invés dos valores separadamente
+    ...[
         new Signal("Alfabeto", "Aprenda os sinais correspondentes às letras do alfabeto.", "EZxkymw426U"),
         new Signal("Alfabeto detalhado", "Entenda como executar cada sinal do alfabeto com precisão.", "EaE7R1VBBiA"),
         new Signal("Cumprimentos", "Descubra como se comunicar com saudações básicas em sinais.", "iCG6wTKJkis"),

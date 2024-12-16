@@ -1,6 +1,7 @@
 import { bd } from "../conferenceForms/conferenceForms.js";
+// import { formatDate } from "./eventos.js";
 
-function exibirDetalhesEvento() {
+export function exibirDetalhesEvento() {
     const params = new URLSearchParams(window.location.search);
     const eventoId = parseInt(params.get("id"), 10);
     const evento = bd.find(e => e.id === eventoId);

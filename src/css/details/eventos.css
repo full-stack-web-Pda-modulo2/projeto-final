@@ -1,6 +1,7 @@
 /* Importando variáveis globais */
 @import url(../../../global.css);
-
+@import url(./../conferenceForms/form.css);
+/* @import url(./details.css); */
 body {
     font-family: 'NunitoSans-VariableFont', sans-serif;
     color: var(--text-primary);
@@ -93,3 +94,10 @@ body {
     margin: 0;
 }
 
+.show {
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}

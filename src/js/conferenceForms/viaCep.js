@@ -5,11 +5,10 @@ const fillForm = (adress)=>{
     document.getElementById('city-input').value = adress.localidade;
     document.getElementById('state-input').value = adress.uf;
 }
-//função para validar se o valor contém apenas números
+
 const isNumber = (number)=>/^[0-9]+$/.test(number);
-//função que valida o CEP, que deve ter 8 díditos e conter apenas números
 const validCEP = (cep)=> cep.length === 8 && isNumber(cep);
-const pequisarCep = async() =>{
+const findCEP = async() =>{
     try {
         let cep= document.getElementById("cep-input").value;
         cep = cep.replace(/\D/g, '');
@@ -30,4 +29,4 @@ const pequisarCep = async() =>{
         showErro(error.message)
     }    
 };
-document.getElementById("cep-input").addEventListener('focusout', pequisarCep)
+document.getElementById("cep-input").addEventListener('focusout', findCEP)

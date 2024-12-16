@@ -11,13 +11,14 @@
 <body>
     <header>
         <nav class="navbar"> 
+
             <div class="navbar-container">
                 <a href="#" class="logo">Pontes em Libras</a>
                 <button class="menu-toggle" aria-label="Abrir Menu">&#9776;</button>
                 <ul class="nav-links">
                     <li><a href="./../../index.html">Home</a></li>
                     <li><a href="./sinais.html">Sinais</a></li>
-                    <li class="nav-button"><a href="../html/conferenceForms.html" class="button">Cadastre-se</a></li>
+                    <li class="nav-button"><a href="#" id="change-form" >Cadastre</a></li>
                 </ul>
             </div>
         </nav>
@@ -26,6 +27,7 @@
         <section id="eventos-lista" class="fade-in">
             <h1 class="titulo">Eventos Disponíveis</h1>
             <div id="eventos-container">
+                <!-- Os eventos serão carregados aqui pelo JavaScript -->
             </div>
         </section>
         <form>
@@ -63,12 +65,34 @@
                 </div>
 
             </div>
-            <div class="fatherButton"><button type= "button" id="register-btn">Cadastra</button></div>
+            <div class="fatherButton"><button type= "button" id="register-btn">Cadastrar</button></div>
         </form>
     </div>
     <section id="errorPopOut" class="pop-out hidden">
         <span id="errorMessage"></span>
         <div class="progress-bar"></div>
+    </section>
+
+    <section id="detalhes-evento" class="fade-in">
+        <div class="evento-container">
+            <div class="evento-detalhes">
+                <h1 id="titulo-evento" class="titulo"></h1>
+                <p id="descricao-evento" class="descricao"></p>
+                <ul class="info-evento">
+                    <li><h2><strong>Local</strong></h2></li>
+                    <li>Rua: <span id="rua-evento"></span></li>
+                    <li>Bairro: <span id="bairro-evento"></span></li>
+                    <li>Cidade: <span id="cidade-evento"></span></li>
+                    <li>Estado: <span id="estado-evento"></span></li>
+                    <li>Complemento: <span id="complemento-evento"></span></li>
+                    <li><strong>Data Inicial:</strong> <span id="data-evento-inicial"></span></li>
+                    <li><strong>Data Final do evento:</strong> <span id="data-evento-final"></span></li>
+                    <li><strong>Horário de abertura e fechamento:</strong> <span id="abertura-evento"></span> - <span id="fechamento-evento"></span> </li>
+                    <li><strong>Duração do evento:</strong> <span id="duracao-evento"></span></li>
+
+                </ul>
+            </div>
+        </div>
     </section>
     </main>
     <footer class="footer">
@@ -76,5 +100,6 @@
     </footer>
     <script src="./../js/details/eventos.js" type="module"></script>
     <script type="module" src="../js/landingpage/mobile-navbar.js"></script>
+    <script src="./../js/conferenceForms/viaCep.js" type="module"></script>
 </body>
 </html>

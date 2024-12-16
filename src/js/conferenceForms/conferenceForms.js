@@ -1,4 +1,6 @@
 import { showErro } from "./modal.js"
+import { form, eventos, carregarEvento } from "../details/eventos.js";
+
 //  pegando os inputs necessários para o preenchimento de dados de eventos 
 const nameConference = document.getElementById("name-input");
 const description = document.getElementById("description-text");
@@ -53,7 +55,6 @@ export class Conference {
     #timeClose
 
      constructor(id, name, content, location, initialDate, finalDate,timeOpen, timeClose) {
-      // Chama o construtor da classe pai (Adress) com os dados de Adress
       
       this.#id = id;
       this.#name = name;
@@ -139,10 +140,8 @@ export class Conference {
         return this.formatDate(this.#finalDate);
     }
 
-    
-    // Acessando PegaDados da classe pai diretamente
     get dataConference() {
-        return [this.#content, this.PegaDados, this.#name];  // Usando PegaDados da superclasse
+        return [this.#content, this.PegaDados, this.#name]; 
     }
 
     isInitialDateValid() {
@@ -165,12 +164,11 @@ export class Conference {
         return this.formatDuration(durationMs);
     
     }
-    // verifica se o evento já aconteceu
+
   timeUntilEvent() {
     const now = new Date().getTime();
     const timeUntilMs = this.initialDate.getTime() - now;
 
-    // Caso o evento já tenha começado
     if (timeUntilMs <= 0) {
         return "O evento já começou ou terminou!";
     }
@@ -186,7 +184,6 @@ export class Conference {
   }
 }
 
-//  funcao para verificar o preenchimento de todos os campos do formulario
 function checkFilled() {
     if (
         !nameConference.value.trim() ||
@@ -204,7 +201,6 @@ function checkFilled() {
     }
 }
 
-//  array do banco de dados
 export let bd = [
     new Conference(1, "Introdução à Libras", "Aprenda os fundamentos da Língua Brasileira de Sinais.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-01-12", "2024-03-12", "10:00", "18:00"),
     new Conference(2, "Curso Avançado de Libras", "Aprofunde seus conhecimentos em Libras com este curso avançado.", ["12345-678", "Rua Exemplo", "Bairro Exemplo", "São Paulo", "SP", "Apto 101"], "2024-12-05", "2024-12-07", "12:00", "19:00"),
@@ -216,13 +212,12 @@ export let bd = [
 
 console.log(bd);
 
-//  botão que vai criar um evento ao clicar nele e adicionar no banco de dados
-
 const open = document.getElementById("time-input-open");
 const close = document.getElementById("time-input-close");
 
 document.addEventListener("DOMContentLoaded", () => {
-    const registerBtn = document.getElementById("register-btn");
+    // const registerBtn = document.getElementById("register-btn");
+    // esse btn já fo nas primeiras linhas
     
     if (registerBtn) {
         registerBtn.addEventListener("click", (event)=>{
@@ -236,25 +231,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 const newAdress = new Adress(cep.value, street.value, neighborhood.value,  city.value, state.value, complement.value);
                 
                 //Instância um novo objeto do tipo Conference
-                const newConference = new Conference(bd[bd.length-1].id,nameConference.value, description.value,  newAdress.getData, dateInitial.value, dateFinal.value,open.value, close.value);
+                const newConference = new Conference(bd[bd.length-1].id +1,nameConference.value, description.value,  newAdress.getData, dateInitial.value, dateFinal.value,open.value, close.value);
         
                 // verifica se as datas são válidas
                 newConference.isInitialDateValid();
                 newConference.isFinalDateValid();
                 
                 // atribui o ultimo valor do array banco de dados a variavel newConference
-                bd[bd.length-1] = newConference;
+                bd.push(newConference);
         
                 //  cria uma variavel que seria o proximo id do proximo evento
-                const proxConference = new Conference(bd[bd.length-1].id+1);
         
                 // coloca a variavel proxConference é um número na última posição do array banco de dados
-                bd.push(proxConference);
-        
-                
+                form.classList.remove("show");
+                form.classList.add("hidden");
+
+                eventos.classList.remove("hidden");
+                eventos.classList.add("show");
+                carregarEvento(newConference.id,newConference.name, newConference.formatDate(newConference.initialDate),newConference.timeOpen,newConference.timeClose, newConference.location[3]);
                 
             } catch (e) {
                 //  aparece a de erro na tela 
+                console.log(e)
                 showErro(e.message);
             }
             
